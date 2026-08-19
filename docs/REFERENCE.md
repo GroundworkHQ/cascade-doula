@@ -61,6 +61,12 @@ All ten pages, static, no build step at runtime:
 - `scripts/generate-pages.py` — emitted the ten pages so the shared header and footer stayed identical. Pages are plain HTML and fine to hand-edit; only re-run this if the header, footer, or nav changes, and it overwrites the pages when you do.
 
 Design decisions worth knowing:
+- **Home hero is a split**: copy on a flat blush field at left, photograph
+  filling the right from 56% across. Because the text no longer sits over the
+  image, the hero needs no scrim for legibility and the photo can run at full
+  strength. The headline is sized to its column (~49px, not the site h1 of
+  64px) so "Unbiased, Unwavering" holds one line without running into the
+  photo. Below 900px the two stack, photo above copy.
 - Evergreen ink, warm cream, clay accent. Deliberately warmer and higher contrast than Luis's blush and sage, so the two read as real alternatives.
 - Cormorant Garamond + Karla from Google Fonts.
 - Conversion-first: a real hero with a CTA above the fold, a trust strip naming Medi-Cal / Alliance / FSA-HSA / sliding scale, a consult CTA in the header on every page, a sticky bottom CTA bar on mobile, and the form reachable from home, contact, and the birth doula page.
