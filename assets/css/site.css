@@ -54,6 +54,10 @@ p:last-child { margin-bottom: 0; }
 
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
 .narrow { max-width: 760px; }
+/* same short measure, but flush with the page's left edge instead of centred,
+   so a narrow block sitting above full-width content lines up with it */
+.wrap.narrow--flush { max-width: var(--maxw); }
+.wrap.narrow--flush > * { max-width: 760px; }
 .section { padding: clamp(64px, 9vw, 118px) 0; }
 .section--sand { background: var(--sand); }
 .section--ink { background: var(--ink); color: var(--cream); }
