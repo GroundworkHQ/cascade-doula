@@ -385,8 +385,12 @@ br.br-wide { display: none; }
 /* numbered variant: the numeral replaces the hairline rule */
 .card--feature.card--num::before { display: none; }
 .card--feature .card__num {
+  /* Fraunces defaults to oldstyle figures, whose 3 4 5 7 9 drop below the
+     baseline and collide with the rule under them. Lining figures sit level. */
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
   font-size: 3rem;
-  line-height: 1;
+  line-height: 1.05;
   display: block;
   margin-bottom: 6px;
   color: var(--clay);
@@ -404,11 +408,13 @@ br.br-wide { display: none; }
 /* the five BRM pillars: one row so they read as a set, compact because
    they carry no body copy */
 .grid--five { grid-template-columns: repeat(auto-fit, minmax(186px, 1fr)); gap: 18px; }
-.card--pillar { padding: 34px 24px 34px; }
+.card--pillar { padding: 34px 18px 34px; }
 .card--pillar .card__num { font-size: 1.9rem; margin-bottom: 4px; }
 .card--pillar .card__num + h3 {
   padding-top: 11px;
-  font-size: clamp(1.02rem, 1.3vw, 1.14rem);
+  /* sized so the two longest pillar names hold one line in a 210px card */
+  font-size: clamp(.98rem, 1.22vw, 1.08rem);
+  white-space: nowrap;
   margin-bottom: 0;
   line-height: 1.25;
 }
