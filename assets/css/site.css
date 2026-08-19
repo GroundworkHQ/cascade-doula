@@ -80,7 +80,7 @@ p:last-child { margin-bottom: 0; }
   display: inline-block;
   padding: 15px 30px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 6px;
   background: var(--clay);
   color: var(--white);
   font: 600 .82rem/1 var(--sans);
@@ -801,10 +801,25 @@ body.modal-open { overflow: hidden; }
 }
 
 /* footer */
-.site-footer { background: var(--ink); color: #b9c5bc; padding: 64px 0 40px; font-size: .92rem; }
+/* the footer sat at the same plum as the CTA band above it, so the two
+   merged into one dark mass. A step darker plus a hairline separates them,
+   and the CTA band no longer needs its full bottom pad. */
+.site-footer {
+  background: #33232c;
+  border-top: 1px solid rgba(250, 226, 227, .14);
+  color: #b9a9b2;
+  padding: 52px 0 38px;
+  font-size: .92rem;
+}
+section.section--ink:last-of-type { padding-bottom: clamp(46px, 6vw, 76px); }
 .site-footer a { color: var(--sand); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer h4 { color: var(--cream); font-size: 1rem; margin-bottom: .8em; }
+.footer-bottom { color: #8d7c86; }
+.ig-link { display: inline-flex; align-items: center; gap: 9px; }
+.ig-icon { flex: none; }
+.ig-link:hover .ig-icon { opacity: .8; }
+
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 36px; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; }
 .footer-grid li { margin-bottom: 9px; }
