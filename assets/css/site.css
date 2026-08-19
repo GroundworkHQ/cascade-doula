@@ -108,7 +108,7 @@ p:last-child { margin-bottom: 0; }
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 20px;
   font-family: var(--serif);
   font-size: 1.22rem;
   letter-spacing: .01em;
