@@ -165,6 +165,22 @@ p:last-child { margin-bottom: 0; }
 .hero .lede { color: #dfe6df; max-width: 620px; }
 .hero--short .hero__inner { padding: clamp(64px, 9vw, 108px) 0; }
 
+/* light hero: Nicole's blush washed over the photo instead of the dark
+   evergreen. Text flips to ink, since cream would vanish on it. */
+.hero--light .hero__media::after {
+  background: linear-gradient(105deg,
+    rgba(225, 204, 190, .93) 0%,
+    rgba(225, 204, 190, .82) 42%,
+    rgba(225, 204, 190, .48) 100%);
+}
+.hero--light h1 { color: var(--ink); }
+.hero--light .lede { color: var(--ink-soft); }
+.hero--light .btn--ghost {
+  color: var(--ink) !important;
+  box-shadow: inset 0 0 0 1.5px rgba(30, 42, 35, .4) !important;
+}
+.hero--light .btn--ghost:hover { background: rgba(30, 42, 35, .07); }
+
 /* trust strip */
 .trust { background: var(--ink); color: #cfd8d0; padding: 20px 0; }
 .trust ul {
