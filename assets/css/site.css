@@ -41,13 +41,13 @@ h1, h2, h3, h4 {
   letter-spacing: -.015em;
   margin: 0 0 .5em;
 }
-h1 { font-size: clamp(2.9rem, 6.6vw, 4.9rem); font-weight: 500; }
+h1 { font-size: clamp(2.5rem, 5.2vw, 4rem); font-weight: 600; }
 /* keep headline lines evenly filled instead of dropping one short word
    onto a line of its own */
 h1, h2 { text-wrap: balance; }
 .lede { text-wrap: pretty; }
-h2 { font-size: clamp(2.2rem, 4.4vw, 3.3rem); }
-h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
+h2 { font-size: clamp(1.85rem, 3.4vw, 2.6rem); }
+h3 { font-size: clamp(1.25rem, 1.9vw, 1.5rem); }
 p { margin: 0 0 1.1em; }
 p:last-child { margin-bottom: 0; }
 
@@ -312,7 +312,7 @@ br.br-wide { display: none; }
 /* the tagline, carried over from the band that used to sit above */
 .band-lead {
   font-family: var(--serif);
-  font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
   line-height: 1.4;
   text-align: center;
   color: var(--cream);
@@ -384,6 +384,7 @@ br.br-wide { display: none; }
 /* numbered variant: the numeral replaces the hairline rule */
 .card--feature.card--num::before { display: none; }
 .card--feature .card__num {
+  margin-bottom: 14px;
   /* the display serif defaults to oldstyle figures, whose 3 4 5 7 9 drop
      below the baseline and collide with the rule under them. Lining figures
      sit level and align across cards. */
@@ -398,20 +399,20 @@ br.br-wide { display: none; }
 }
 .card--num { padding-top: 44px; }
 .card--feature .card__num + h3 {
-  padding-top: 14px;
+  padding-top: 18px;
   border-top: 2px solid rgba(160, 77, 99, .28);
   display: inline-block;
 }
-.card--feature h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); margin-bottom: .55em; }
+.card--feature h3 { font-size: clamp(1.3rem, 1.9vw, 1.5rem); margin-bottom: .55em; }
 .card--feature p { color: var(--ink-soft); position: relative; }
 
 /* the five BRM pillars: one row so they read as a set, compact because
    they carry no body copy */
 .grid--five { grid-template-columns: repeat(auto-fit, minmax(186px, 1fr)); gap: 18px; }
 .card--pillar { padding: 34px 18px 34px; }
-.card--pillar .card__num { font-size: 1.9rem; margin-bottom: 4px; }
+.card--pillar .card__num { font-size: 1.9rem; margin-bottom: 18px; }
 .card--pillar .card__num + h3 {
-  padding-top: 11px;
+  padding-top: 16px;
   /* sized so the two longest pillar names hold one line in a 210px card */
   font-size: clamp(.98rem, 1.22vw, 1.08rem);
   white-space: nowrap;
@@ -667,9 +668,9 @@ body.modal-open { overflow: hidden; }
   padding: 18px 0; border-bottom: 1px solid rgba(61, 43, 53, .13);
 }
 .prices li:first-child { border-top: 1px solid rgba(61, 43, 53, .13); }
-.prices .price-name { font-family: var(--serif); font-size: 1.16rem; }
+.prices .price-name { font-family: var(--serif); font-size: 1.16rem; font-weight: 600; }
 .prices .price-meta { color: var(--muted); font-size: .88rem; }
-.prices .price-amt { font-family: var(--serif); font-size: 1.3rem; color: var(--clay); }
+.prices .price-amt { font-family: var(--serif); font-size: 1.32rem; font-weight: 600; color: var(--clay); }
 
 /* form */
 .form-panel {
@@ -847,7 +848,7 @@ section.section--ink:last-of-type { padding-bottom: clamp(46px, 6vw, 76px); }
 section.section--ink:last-of-type .wrap.narrow { max-width: 920px; }
 /* a step down from the standard h2 so the headline holds one line with room
    to breathe either side, instead of filling the container edge to edge */
-section.section--ink:last-of-type h2 { font-size: clamp(1.85rem, 3.3vw, 2.55rem); }
+section.section--ink:last-of-type h2 { font-size: clamp(1.7rem, 2.9vw, 2.3rem); }
 .site-footer a { color: var(--sand); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer h4 { color: var(--cream); font-size: 1rem; margin-bottom: .8em; }

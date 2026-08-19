@@ -447,7 +447,7 @@ b += f"""<section class="section">
           {"".join(f"<li>{i}</li>" for i in PACKAGE_ITEMS)}
         </ul>
         <p style="margin-top:26px"><strong>Nicole is contracted with Central California Alliance for Health and Medi-Cal, and offers private pay and sliding scale.</strong></p>
-        <div class="btn-row"><a class="btn" href="{p}consultation/">Book a free consult</a><a class="btn btn--ghost" href="{p}creative-funding/">Ways to pay</a></div>
+        <div class="btn-row" style="justify-content:center"><a class="btn" href="{p}consultation/">Book a free consult</a><a class="btn btn--ghost" href="{p}creative-funding/">Ways to pay</a></div>
       </div>
       <div class="split__media"><img src="{p}assets/img/photo-garden.jpg" alt=""></div>
     </div>
