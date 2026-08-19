@@ -271,7 +271,7 @@ home += header("", p)
 home += hero(
     "Unbiased, unwavering support for the birth you&nbsp;want",
     "Birth and postpartum care for mothers and families in Scotts&nbsp;Valley, Santa&nbsp;Cruz, San&nbsp;Jose and surrounding areas.",
-    "photo-coast.jpg", p)
+    "photo-boardwalk.jpg", p)
 home += TRUST
 home += f"""<section class="section">
   <div class="wrap">
