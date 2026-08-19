@@ -690,6 +690,8 @@ body.modal-open { overflow: hidden; }
   opacity: .5;
 }
 @media (max-width: 560px) { .motifs img:nth-child(3) { display: none; } }
+/* a little more air between the drawings and the headline below them */
+.section--ink .motifs { margin-bottom: 46px; }
 
 /* ornament band: the drawings used large and on purpose, high on the page,
    sage-tinted so they read against cream */
@@ -815,6 +817,9 @@ section.section--ink:last-of-type { padding-bottom: clamp(46px, 6vw, 76px); }
 /* the closing CTA headline needs about 850px at its full size, so give that
    band a wider measure than the default narrow wrap */
 section.section--ink:last-of-type .wrap.narrow { max-width: 920px; }
+/* a step down from the standard h2 so the headline holds one line with room
+   to breathe either side, instead of filling the container edge to edge */
+section.section--ink:last-of-type h2 { font-size: clamp(1.85rem, 3.3vw, 2.55rem); }
 .site-footer a { color: var(--sand); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer h4 { color: var(--cream); font-size: 1rem; margin-bottom: .8em; }
