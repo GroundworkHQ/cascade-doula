@@ -185,7 +185,7 @@ p:last-child { margin-bottom: 0; }
 .hero--light .hero__media::after {
   background: rgb(238, 186, 190);
   mix-blend-mode: multiply;
-  opacity: 1;
+  opacity: .74;
 }
 .hero--light .hero__media::before {
   content: "";
@@ -218,7 +218,7 @@ p:last-child { margin-bottom: 0; }
 .hero--light .hero__inner { position: relative; z-index: 1; }
 /* lift the photo itself rather than piling on more tint, so it gets
    lighter without disappearing under the wash again */
-.hero--light .hero__media img { filter: grayscale(1) brightness(1.16) contrast(.96); }
+.hero--light .hero__media img { filter: grayscale(1) brightness(1.22) contrast(.95); }
 .hero--light h1 { color: var(--ink); }
 .hero--light .lede { color: var(--ink); font-weight: 500; }
 .hero--light .btn--ghost {
@@ -593,6 +593,42 @@ body.modal-open { overflow: hidden; }
   margin: 0 auto;
   line-height: 1.4;
 }
+
+/* reassurance block beside the form: a face and a real client line at the
+   exact moment someone decides whether to hit send */
+.form-aside {
+  margin-top: 44px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(61, 43, 53, .14);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.form-aside__photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+  box-shadow: 0 6px 18px -8px rgba(61, 43, 53, .45);
+}
+.form-aside blockquote {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.06rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.form-aside cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: .74rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (max-width: 560px) { .form-aside { flex-direction: column; } }
 
 /* photo strip */
 .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 3px; }
