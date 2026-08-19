@@ -349,7 +349,7 @@ b += header("about/", p)
 b += hero("Meet Nicole", "Birth doula, certified Body Ready Method&reg; Pro, and a steady hand through the most important hours of your life.", "photo-couple.jpg", p, short=True, ctas=False)
 b += f"""<section class="section">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--top">
       <div class="split__media"><img src="{p}assets/img/nicole.jpg" alt="Nicole Lakey"></div>
       <div>
         <p>After a 15-year career in the medical field, Nicole has followed her true passion for supporting families during the transformative process of childbirth. As a birth doula and a certified Body Ready Method&reg; Pro, she has discovered her true calling: helping you feel strong, confident, and prepared in your own body.</p>
