@@ -184,6 +184,7 @@ def form_block(p, heading="Tell me a little about you and your baby"):
           <a class="btn btn--ghost" href="{CALENDLY_LG}" rel="noopener">Los&nbsp;Gatos consultation</a>
         </div>
         <div class="form-aside">
+          <img class="form-aside__photo" src="{p}assets/img/nicole.jpg" alt="Nicole Lakey">
           <div><blockquote>&ldquo;Working with Nicole was the single best decision I made to support my birthing journey.&rdquo;</blockquote>
           <cite>Janae</cite></div>
         </div>
