@@ -685,7 +685,7 @@ body.modal-open { overflow: hidden; }
   margin: 0 0 36px;
 }
 .motifs img {
-  height: clamp(104px, 14vw, 186px);
+  height: clamp(100px, 12vw, 150px);
   width: auto;
   opacity: .5;
 }
