@@ -858,6 +858,9 @@ section.section--ink:last-of-type .wrap.narrow { max-width: 920px; }
 /* a step down from the standard h2 so the headline holds one line with room
    to breathe either side, instead of filling the container edge to edge */
 section.section--ink:last-of-type h2 { font-size: clamp(1.7rem, 2.9vw, 2.3rem); }
+/* supporting copy under the closing headline, not a lede that has to carry a
+   section on its own */
+section.section--ink:last-of-type .lede { font-size: clamp(.98rem, 1.2vw, 1.08rem); }
 .site-footer a { color: var(--sand); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer h4 { color: var(--cream); font-size: 1rem; margin-bottom: .8em; }
