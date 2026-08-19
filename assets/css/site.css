@@ -400,7 +400,7 @@ br.br-wide { display: none; }
   color: var(--clay);
   position: static;
 }
-.card--num { padding-top: 44px; }
+.card--num { padding-top: 68px; }
 .card--feature .card__num + h3 {
   padding-top: 18px;
   border-top: 2px solid rgba(160, 77, 99, .28);
@@ -412,7 +412,13 @@ br.br-wide { display: none; }
 /* the five BRM pillars: one row so they read as a set, compact because
    they carry no body copy */
 .grid--five { grid-template-columns: repeat(auto-fit, minmax(186px, 1fr)); gap: 18px; }
-.card--pillar { padding: 34px 18px 34px; }
+/* the bracket sits at 14px and runs 24px, so it ends at 38. Top padding of
+   50 puts the numeral clear of it with room to spare. Using the padding
+   shorthand here is what previously overrode .card--num's top padding and
+   let the bracket cut through the numerals. */
+.card--pillar { padding: 50px 18px 30px; }
+.card--pillar .card__num::before { left: 14px; top: 14px; width: 24px; height: 24px; }
+.card--pillar:hover .card__num::before { width: 34px; height: 34px; }
 .card--pillar .card__num { font-size: 1.9rem; margin-bottom: 18px; }
 .card--pillar .card__num + h3 {
   padding-top: 16px;
