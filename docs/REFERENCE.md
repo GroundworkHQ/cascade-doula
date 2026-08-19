@@ -62,7 +62,7 @@ All ten pages, static, no build step at runtime:
 
 Design decisions worth knowing:
 - Evergreen ink, warm cream, clay accent. Deliberately warmer and higher contrast than Luis's blush and sage, so the two read as real alternatives.
-- Fraunces + Inter from Google Fonts.
+- Cormorant Garamond + Karla from Google Fonts.
 - Conversion-first: a real hero with a CTA above the fold, a trust strip naming Medi-Cal / Alliance / FSA-HSA / sliding scale, a consult CTA in the header on every page, a sticky bottom CTA bar on mobile, and the form reachable from home, contact, and the birth doula page.
 - Every page carries `noindex, nofollow`. The visible "design proposal" banner was removed on Miguel's instruction 2026-08-18; the meta tag is now the only thing keeping this out of search, so do not remove it while the site lives at the preview URL.
 - The form posts nowhere. Submitting shows an inline note saying it is a proposal.
