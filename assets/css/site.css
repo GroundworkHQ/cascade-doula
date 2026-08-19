@@ -187,6 +187,52 @@ p:last-child { margin-bottom: 0; }
   color: #dfe6df;
 }
 
+/* premium feature cards: hairline rule, generous padding, and one of
+   Nicole's line drawings watermarked into the corner. Paths are relative
+   to this stylesheet so they work from any page depth. */
+.grid--duo { grid-template-columns: repeat(auto-fit, minmax(430px, 1fr)); }
+.card--feature {
+  position: relative;
+  overflow: hidden;
+  padding: 42px 40px 46px;
+  background: var(--white);
+  border: 1px solid rgba(30, 42, 35, .09);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.card--feature::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 2px;
+  background: var(--clay);
+  margin-bottom: 24px;
+}
+.card--feature::after {
+  content: "";
+  position: absolute;
+  right: -34px;
+  bottom: -46px;
+  width: 210px;
+  height: 210px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .13;
+  pointer-events: none;
+  filter: invert(18%) sepia(12%) saturate(900%) hue-rotate(90deg);
+}
+.card--feature:nth-child(4n+1)::after { background-image: url("../img/line-1.png"); }
+.card--feature:nth-child(4n+2)::after { background-image: url("../img/line-2.png"); }
+.card--feature:nth-child(4n+3)::after { background-image: url("../img/line-3.png"); }
+.card--feature:nth-child(4n+4)::after { background-image: url("../img/line-2.png"); transform: scaleX(-1); }
+.card--feature:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: rgba(189, 100, 72, .3);
+}
+.card--feature h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); margin-bottom: .55em; }
+.card--feature p { color: var(--ink-soft); position: relative; }
+
 /* split */
 .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(34px, 5vw, 68px); align-items: center; }
 .split__media img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; height: 100%; object-fit: cover; max-height: 620px; }
@@ -267,6 +313,22 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius); font-size: .92rem;
 }
 .form-status.is-visible { display: block; }
+
+/* Nicole's line drawings, keyed off her blush background into transparent
+   art so they can sit on any colour. White reads well on the ink band. */
+.motifs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(26px, 6vw, 64px);
+  margin: 0 0 36px;
+}
+.motifs img {
+  height: clamp(84px, 11vw, 132px);
+  width: auto;
+  opacity: .5;
+}
+@media (max-width: 560px) { .motifs img:nth-child(3) { display: none; } }
 
 /* photo strip */
 .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 3px; }
