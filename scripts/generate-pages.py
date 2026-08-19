@@ -336,7 +336,7 @@ home += f"""<section class="section section--ink">
 <section class="section">
   <div class="wrap">
     <div class="split">
-      <div class="split__media"><img src="{p}assets/img/photo-garden.jpg" alt=""></div>
+      <div class="split__media"><img src="{p}assets/img/photo-coast.jpg" alt=""></div>
       <div>
         <p class="eyebrow">Body Ready Method&reg;</p>
         <h2>Prepare your body, not just your birth plan</h2>
@@ -594,7 +594,7 @@ b += f"""<section class="section">
         <p>Body Ready Method&reg; Professionals understand how to support the pregnant body to find resilience, strength, and mobility. We are experts in pelvic mechanics and understand what to do during every stage of the birthing process.</p>
         <div class="btn-row"><a class="btn" href="{CALENDLY_SC}" rel="noopener">Schedule a discovery call</a></div>
       </div>
-      <div class="split__media"><img src="{p}assets/img/photo-coast.jpg" alt=""></div>
+      <div class="split__media"><img src="{p}assets/img/photo-garden.jpg" alt=""></div>
     </div>
   </div>
 </section>

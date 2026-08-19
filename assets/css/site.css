@@ -283,6 +283,8 @@ br.br-wide { display: none; }
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 12px 34px;
   font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 /* cards */
