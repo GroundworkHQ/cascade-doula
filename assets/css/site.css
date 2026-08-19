@@ -183,9 +183,9 @@ p:last-child { margin-bottom: 0; }
    properly pink while the photo stays fully visible. A screen layer lifts the
    shadows so it does not go muddy. */
 .hero--light .hero__media::after {
-  background: rgb(232, 208, 197);
+  background: rgb(238, 186, 190);
   mix-blend-mode: multiply;
-  opacity: .96;
+  opacity: 1;
 }
 .hero--light .hero__media::before {
   content: "";
@@ -193,10 +193,10 @@ p:last-child { margin-bottom: 0; }
   inset: 0;
   z-index: 1;
   background: linear-gradient(105deg,
-    rgba(255, 249, 245, .58) 0%,
-    rgba(255, 249, 245, .34) 40%,
-    rgba(255, 249, 245, .12) 75%,
-    rgba(255, 249, 245, .04) 100%);
+    rgba(255, 226, 228, .52) 0%,
+    rgba(255, 226, 228, .34) 42%,
+    rgba(255, 226, 228, .18) 76%,
+    rgba(255, 226, 228, .10) 100%);
   mix-blend-mode: screen;
   pointer-events: none;
 }
@@ -208,17 +208,17 @@ p:last-child { margin-bottom: 0; }
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 46% 66% at 24% 50%,
-    rgba(243, 226, 218, .84) 0%,
-    rgba(243, 226, 218, .58) 40%,
-    rgba(243, 226, 218, .24) 70%,
-    rgba(243, 226, 218, 0) 100%);
+    rgba(250, 226, 227, .86) 0%,
+    rgba(250, 226, 227, .6) 40%,
+    rgba(250, 226, 227, .26) 70%,
+    rgba(250, 226, 227, 0) 100%);
   pointer-events: none;
   z-index: 0;
 }
 .hero--light .hero__inner { position: relative; z-index: 1; }
 /* lift the photo itself rather than piling on more tint, so it gets
    lighter without disappearing under the wash again */
-.hero--light .hero__media img { filter: brightness(1.14) contrast(1.02); }
+.hero--light .hero__media img { filter: grayscale(1) brightness(1.16) contrast(.96); }
 .hero--light h1 { color: var(--ink); }
 .hero--light .lede { color: var(--ink); font-weight: 500; }
 .hero--light .btn--ghost {
