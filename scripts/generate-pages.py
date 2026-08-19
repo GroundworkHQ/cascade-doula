@@ -263,7 +263,7 @@ p = ""
 home = head("Birth &amp; Postpartum Doula in Santa Cruz", "Birth and postpartum doula support for families in Scotts Valley, Santa Cruz and San Jose.", p)
 home += header("", p)
 home += hero(
-    "Unbiased, unwavering support for the birth you want",
+    "Unbiased, unwavering support for the birth you&nbsp;want",
     "Birth and postpartum care for mothers and families in Scotts Valley, Santa Cruz, San Jose and surrounding areas.",
     "photo-coast.jpg", p)
 home += TRUST
