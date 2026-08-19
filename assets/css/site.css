@@ -625,14 +625,7 @@ body.modal-open { overflow: hidden; }
 
 /* reassurance block beside the form: a face and a real client line at the
    exact moment someone decides whether to hit send */
-/* the left column stretches to the form's height and the aside is pushed to
-   the bottom of it, so it fills the space rather than leaving a gap below */
-#contact-form .split { align-items: stretch; }
-#contact-form .split > div:first-child { display: flex; flex-direction: column; }
-/* sit in the middle of the leftover space rather than glued to the very
-   bottom: on the taller pages the column runs ~870px and a bottom-pinned
-   block reads as stranded under a void */
-#contact-form .form-aside { margin-top: auto; margin-bottom: auto; }
+.form-aside { margin-top: auto; margin-bottom: auto; }
 .form-aside {
   margin-top: 44px;
   padding-top: 30px;
