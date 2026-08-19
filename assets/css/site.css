@@ -202,10 +202,28 @@ p:last-child { margin-bottom: 0; }
   position: relative;
   overflow: hidden;
   padding: 42px 40px 46px;
-  background: var(--white);
+  /* warm vertical wash rather than flat white, so the card has some depth */
+  background: linear-gradient(175deg, #fff 0%, #fffdfa 55%, #fbf6ef 100%);
   border: 1px solid rgba(30, 42, 35, .09);
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(30, 42, 35, .04);
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
+/* hairline inset ring, reads as a printed edge rather than a UI border */
+.card--feature > * { position: relative; z-index: 1; }
+.card--num::after, .card--feature::after { z-index: 0; }
+.card--num .card__num::before {
+  content: "";
+  position: absolute;
+  left: 18px; top: 18px;
+  width: 38px; height: 38px;
+  border-top: 2px solid var(--clay);
+  border-left: 2px solid var(--clay);
+  border-top-left-radius: 6px;
+  opacity: .45;
+  transition: width .25s ease, height .25s ease, opacity .25s ease;
+}
+.card--num:hover .card__num::before { width: 54px; height: 54px; opacity: .75; }
 .card--feature::before {
   content: "";
   display: block;
@@ -224,7 +242,7 @@ p:last-child { margin-bottom: 0; }
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: .13;
+  opacity: .2;
   pointer-events: none;
   filter: invert(18%) sepia(12%) saturate(900%) hue-rotate(90deg);
 }
@@ -240,12 +258,14 @@ p:last-child { margin-bottom: 0; }
 /* numbered variant: the numeral replaces the hairline rule */
 .card--feature.card--num::before { display: none; }
 .card--feature .card__num {
-  font-size: 2.6rem;
+  font-size: 3rem;
   line-height: 1;
   display: block;
   margin-bottom: 6px;
   color: var(--clay);
+  position: static;
 }
+.card--num { padding-top: 44px; }
 .card--feature .card__num + h3 {
   padding-top: 14px;
   border-top: 2px solid rgba(189, 100, 72, .28);
@@ -257,7 +277,7 @@ p:last-child { margin-bottom: 0; }
 /* the five BRM pillars: one row so they read as a set, compact because
    they carry no body copy */
 .grid--five { grid-template-columns: repeat(auto-fit, minmax(186px, 1fr)); gap: 18px; }
-.card--pillar { padding: 30px 24px 34px; }
+.card--pillar { padding: 34px 24px 34px; }
 .card--pillar .card__num { font-size: 1.9rem; margin-bottom: 4px; }
 .card--pillar .card__num + h3 {
   padding-top: 11px;
@@ -265,11 +285,33 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: 0;
   line-height: 1.25;
 }
-.card--pillar::after { width: 132px; height: 132px; right: -26px; bottom: -30px; opacity: .11; }
+.card--pillar::after { width: 132px; height: 132px; right: -26px; bottom: -30px; opacity: .17; }
 
 /* split */
 .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(34px, 5vw, 68px); align-items: center; }
-.split__media img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; height: 100%; object-fit: cover; max-height: 620px; }
+/* offset hairline frame behind each photo, the way a matted print sits on
+   a mount. Editorial rather than a plain drop shadow. */
+.split__media { position: relative; }
+.split__media::before {
+  content: "";
+  position: absolute;
+  top: 18px; right: -18px; bottom: -18px; left: 18px;
+  border: 1px solid rgba(189, 100, 72, .5);
+  border-radius: 6px;
+  pointer-events: none;
+}
+.split__media img {
+  position: relative;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 620px;
+}
+@media (max-width: 620px) {
+  .split__media::before { top: 12px; right: -12px; bottom: -12px; left: 12px; }
+}
 /* top-align the media with the first line of text instead of centring it
    against a tall column */
 .split--top { align-items: start; }

@@ -397,7 +397,7 @@ b += f"""<section class="section">
     </div>
     <div class="wrap narrow" style="padding:0;margin-top:40px">
       <p>Each session is tailored to meet your unique needs, questions, and vision for birth. Whether you're birthing at home, in a hospital, or a birth center, this is your space to learn, plan, and connect. Let's create a calm, empowered start to your birth journey.</p>
-      <div class="btn-row"><a class="btn" href="{p}consultation/">Book a free consult</a></div>
+      <div class="btn-row" style="justify-content:center"><a class="btn" href="{p}consultation/">Book a free consult</a></div>
     </div>
   </div>
 </section>
