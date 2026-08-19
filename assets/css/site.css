@@ -412,6 +412,17 @@ br.br-wide { display: none; }
   margin-bottom: 0;
   line-height: 1.25;
 }
+.pillar--open { cursor: pointer; }
+.pillar--open:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+.pillar__more {
+  display: block;
+  margin-top: 14px;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 600;
+}
 .card--pillar::after { width: 132px; height: 132px; right: -26px; bottom: -30px; opacity: .17; }
 
 /* the same card treatment on a dark band: keep the translucent panel and

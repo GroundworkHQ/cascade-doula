@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/site.css?v=20260819111822">
+<link rel="stylesheet" href="../assets/css/site.css?v=20260819112709">
 </head>
 <body>
 <header class="site-header">
@@ -48,11 +48,11 @@
   </div>
   <div class="wrap" style="margin-top:40px">
     <div class="grid grid--3 grid--five">
-      <div class="card card--feature card--num card--pillar"><span class="card__num">01</span><h3>Upper body mobility</h3></div>
-      <div class="card card--feature card--num card--pillar"><span class="card__num">02</span><h3>Core</h3></div>
-      <div class="card card--feature card--num card--pillar"><span class="card__num">03</span><h3>Pelvis</h3></div>
-      <div class="card card--feature card--num card--pillar"><span class="card__num">04</span><h3>Pelvic floor</h3></div>
-      <div class="card card--feature card--num card--pillar"><span class="card__num">05</span><h3>Movement patterns</h3></div>
+      <div class="card card--feature card--num card--pillar pillar--open" tabindex="0" role="button" aria-label="Read more about Upper Body Mobility"><span class="card__num">01</span><h3>Upper Body Mobility</h3><span class="pillar__more">Read more</span><div class="quote__full"><p>How freely the ribs, shoulders and upper back move affects breathing and how much room there is above the belly. Work here is about restoring range that pregnancy tends to take away.</p></div></div>
+      <div class="card card--feature card--num card--pillar pillar--open" tabindex="0" role="button" aria-label="Read more about Core"><span class="card__num">02</span><h3>Core</h3><span class="pillar__more">Read more</span><div class="quote__full"><p>The abdominal wall and the deep muscles around it change shape through pregnancy. The focus is on how the core coordinates and supports, rather than on how strong it looks.</p></div></div>
+      <div class="card card--feature card--num card--pillar pillar--open" tabindex="0" role="button" aria-label="Read more about Pelvis"><span class="card__num">03</span><h3>Pelvis</h3><span class="pillar__more">Read more</span><div class="quote__full"><p>The pelvis is the passage the baby travels through, and how it sits and moves shapes that journey. Work here looks at alignment and at how freely the joints move.</p></div></div>
+      <div class="card card--feature card--num card--pillar pillar--open" tabindex="0" role="button" aria-label="Read more about Pelvic Floor"><span class="card__num">04</span><h3>Pelvic Floor</h3><span class="pillar__more">Read more</span><div class="quote__full"><p>The muscles at the base of the pelvis hold weight through pregnancy and stretch during birth. The aim is a floor that both engages and releases, not one that is simply tight.</p></div></div>
+      <div class="card card--feature card--num card--pillar pillar--open" tabindex="0" role="button" aria-label="Read more about Movement Patterns"><span class="card__num">05</span><h3>Movement Patterns</h3><span class="pillar__more">Read more</span><div class="quote__full"><p>How you sit, stand, lift and rest all day adds up. Small changes to everyday movement can make more difference than any single exercise.</p></div></div>
     </div>
   </div>
 </section>
@@ -79,7 +79,7 @@
 </section>
 
 <section class="section">
-  <div class="wrap narrow narrow--flush">
+  <div class="wrap narrow">
     <p class="eyebrow">1:1 assessment &amp; follow-up</p>
     <h2>Sessions and pricing</h2>
     <p>Sessions are tailored to individual needs, offered in office or virtually.</p>
@@ -150,6 +150,14 @@
   <a class="btn btn--ghost" href="../contact/">Send a note</a>
   <a class="btn" href="../consultation/">Book a consult</a>
 </div>
-<script src="../assets/js/site.js?v=20260819111822"></script>
+<div class="modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-lead">
+  <div class="modal__panel">
+    <button class="modal__close" type="button" data-modal-close aria-label="Close">&times;</button>
+    <p class="modal__lead" id="review-modal-lead"></p>
+    <div class="modal__body"></div>
+    <cite class="modal__cite"></cite>
+  </div>
+</div>
+<script src="../assets/js/site.js?v=20260819112709"></script>
 </body>
 </html>

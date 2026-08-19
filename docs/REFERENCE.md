@@ -85,6 +85,18 @@ Deferred unless she picks this one: the form backend and the data-handling notes
 
 ## 7. Open decisions
 
+### Body Ready Method pillar copy is PLACEHOLDER
+The five pillar cards on `body-ready-method/` open a modal with a one-line
+description each. **Those descriptions are mine, not Nicole's and not Body
+Ready Method's.** They are deliberately neutral: they describe the body region
+and why it matters in pregnancy, and make no BRM method claims.
+
+Nicole is a certified BRM Pro and must approve or rewrite all five before this
+goes anywhere real. She may also have approved marketing language from BRM that
+she is licensed to use, which would be the better source. Copying the
+descriptions off bodyreadymethod.com is not an option; that is their copyrighted
+marketing copy and the liability would land on her.
+
 ### Where the form posts (deferred)
 Not needed while this is a template. When it does go live, GitHub Pages cannot process a POST, so the form needs an external destination. Realistic options are a form service (Formspree, Basin, Getform; note Netlify Forms only works on Netlify hosting) or a Supabase Edge Function writing to a `doula_leads` table, the same shape as Rekindle's `rekindle-reserve`.
 
