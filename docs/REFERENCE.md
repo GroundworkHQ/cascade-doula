@@ -32,7 +32,9 @@ Assets are NOT in hand. Nicole's photos and logo belong to her and are on the li
 ## 2. Stack & accounts
 **Decided:**
 - **Static front end** — plain HTML/CSS/JS to start, no build step.
-- **Hosting: GitHub Pages.**
+- **Hosting: GitHub Pages.** No Vercel. Miguel declined a Vercel project for this one on 2026-08-18, so the `/preview` skill's Vercel path does not apply here.
+- **Preview URL: https://cascade-doula.miguelloza.com/** — served by GitHub Pages from `main` (not a `preview` branch), via the repo's `CNAME` file plus a Cloudflare `CNAME cascade-doula -> groundworkhq.github.io` on miguelloza.com, grey cloud. To update the preview, push to `main`.
+- **noindex** comes from the `<meta name="robots">` tag in every page. GitHub Pages cannot set `X-Robots-Tag` headers, so the meta tag is the whole defense. Do not remove it while this is a proposal.
 - **Repo:** `GroundworkHQ/cascade-doula` (public). Created 2026-08-18, `origin` set. Public is required: Pages on a private repo needs a paid plan, and GroundworkHQ cannot hold a private repo at all while the account-wide billing hold stands.
 
 **Open (see §7):**
@@ -68,7 +70,7 @@ Design decisions worth knowing:
 ## 5. What's next
 1. Miguel reviews locally: `python3 -m http.server 8931` from the repo root.
 2. Commit and push (this repo has Miguel's standing OK for end-of-session pushes).
-3. Publish a shareable preview so Nicole can compare against the live site. `/preview` for `cascade-doula.miguelloza.com`, or GitHub Pages at `groundworkhq.github.io/cascade-doula/`. Do NOT point cascadedoula.com anywhere.
+3. ~~Publish a shareable preview.~~ Done: https://cascade-doula.miguelloza.com/ (Pages, from `main`). cascadedoula.com is untouched and stays that way.
 4. Get original photos from Nicole and swap out the borrowed ones.
 5. Show her both, let her choose.
 
