@@ -391,6 +391,27 @@ br.br-wide { display: none; }
 }
 .card--pillar::after { width: 132px; height: 132px; right: -26px; bottom: -30px; opacity: .17; }
 
+/* the same card treatment on a dark band: keep the translucent panel and
+   switch the bracket, rule and watermark to light so they read */
+.section--ink .card--feature {
+  background: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .14);
+  box-shadow: none;
+}
+.section--ink .card--num .card__num::before { border-color: rgba(250, 226, 227, .5); }
+.section--ink .card--feature .card__num + h3 { border-top-color: rgba(250, 226, 227, .32); }
+.section--ink .card--feature::after { opacity: .12; filter: none; }
+/* .card--feature forces ink body copy, which is invisible on a dark band */
+.section--ink .card--feature p { color: #ddd0d7; }
+.section--ink .card--feature h3 { color: var(--cream); }
+.section--ink .card--feature:nth-child(4n+1)::after { background-image: url("../img/line-1.png"); }
+.section--ink .card--feature:nth-child(4n+2)::after { background-image: url("../img/line-2.png"); }
+.section--ink .card--feature:nth-child(4n+3)::after { background-image: url("../img/line-3.png"); }
+.section--ink .card--feature:hover {
+  border-color: rgba(255, 255, 255, .3);
+  box-shadow: 0 18px 44px -22px rgba(0, 0, 0, .55);
+}
+
 /* split */
 .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(34px, 5vw, 68px); align-items: center; }
 /* offset hairline frame behind each photo, the way a matted print sits on
