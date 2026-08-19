@@ -227,6 +227,31 @@ p:last-child { margin-bottom: 0; }
 }
 .hero--light .btn--ghost:hover { background: rgba(61, 43, 53, .07); }
 
+/* interior heroes: flat blush field with one of Nicole's drawings instead of
+   a photograph. Photos behind text needed so much tint they stopped reading,
+   and these weigh a tenth as much. */
+.hero--art { background: linear-gradient(118deg, #fdf5f3 0%, #f8e6e3 52%, #f2d9d7 100%); }
+.hero--art::after { display: none; }
+.hero--art .hero__media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: clamp(20px, 8vw, 150px);
+}
+.hero--art .hero__media::before,
+.hero--art .hero__media::after { display: none; }
+.hero--art .hero__media img {
+  width: auto;
+  height: clamp(140px, 25vw, 296px);
+  object-fit: contain;
+  filter: none;
+  opacity: .92;
+}
+@media (max-width: 720px) {
+  .hero--art .hero__media { justify-content: center; align-items: flex-end; padding: 0 0 18px; }
+  .hero--art .hero__media img { height: clamp(110px, 30vw, 170px); opacity: .5; }
+}
+
 /* trust strip */
 .trust { background: var(--ink); color: #cfd8d0; padding: 20px 0; }
 .trust ul {

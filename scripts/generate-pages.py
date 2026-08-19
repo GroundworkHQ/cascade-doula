@@ -109,7 +109,7 @@ def footer(p):
 """
 
 def hero(title, lede, img, p, short=False, ctas=True):
-    cls = "hero hero--light hero--short" if short else "hero hero--light"
+    cls = "hero hero--light hero--art hero--short" if short else "hero hero--light"
     btns = ""
     if ctas:
         btns = f"""
