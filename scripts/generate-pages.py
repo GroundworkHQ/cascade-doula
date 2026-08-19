@@ -4,6 +4,7 @@ Output is plain HTML with no runtime build step. Re-run only if the shared
 header/footer changes; individual pages are fine to hand-edit after."""
 import os, pathlib
 
+ASSET_V = "202608181741"   # bump when css/js change, GitHub Pages caches assets 10 min
 ROOT = pathlib.Path.home() / "Documents/code/cascade-doula"
 
 CALENDLY_SC = "https://calendly.com/cascadedoulanl/30min"
@@ -34,7 +35,7 @@ def head(title, desc, p):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{p}assets/css/site.css">
+<link rel="stylesheet" href="{p}assets/css/site.css?v={ASSET_V}">
 </head>
 <body>
 <div class="preview-flag">Design proposal for Nicole · not the live site</div>
@@ -103,7 +104,7 @@ def footer(p):
   <a class="btn btn--ghost" href="{p}contact/">Send a note</a>
   <a class="btn" href="{p}consultation/">Book a consult</a>
 </div>
-<script src="{p}assets/js/site.js"></script>
+<script src="{p}assets/js/site.js?v={ASSET_V}"></script>
 </body>
 </html>
 """
