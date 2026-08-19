@@ -291,7 +291,7 @@ home += f'''<section class="ornament">
 </section>
 
 '''
-home += f"""<section class="section">
+home += f"""<section class="section section--ink">
   <div class="wrap">
     <div class="grid grid--3">
       <div class="card card--feature card--num"><span class="card__num">01</span><h3>Connect</h3><p>Giving birth is one of the most important moments in your life. Surround yourself with people who make you feel safe, strong, and supported.</p></div>
