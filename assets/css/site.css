@@ -247,6 +247,19 @@ p:last-child { margin-bottom: 0; }
 .card--feature h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); margin-bottom: .55em; }
 .card--feature p { color: var(--ink-soft); position: relative; }
 
+/* the five BRM pillars: one row so they read as a set, compact because
+   they carry no body copy */
+.grid--five { grid-template-columns: repeat(auto-fit, minmax(186px, 1fr)); gap: 18px; }
+.card--pillar { padding: 30px 24px 34px; }
+.card--pillar .card__num { font-size: 1.9rem; margin-bottom: 4px; }
+.card--pillar .card__num + h3 {
+  padding-top: 11px;
+  font-size: clamp(1.02rem, 1.3vw, 1.14rem);
+  margin-bottom: 0;
+  line-height: 1.25;
+}
+.card--pillar::after { width: 132px; height: 132px; right: -26px; bottom: -30px; opacity: .11; }
+
 /* split */
 .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(34px, 5vw, 68px); align-items: center; }
 .split__media img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; height: 100%; object-fit: cover; max-height: 620px; }

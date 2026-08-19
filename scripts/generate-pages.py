@@ -565,10 +565,10 @@ b += f"""<section class="section">
   <div class="wrap" style="margin-top:40px">
     <div class="grid grid--3">
       <div class="card card--feature card--num"><span class="card__num">01</span><h3>Upper body mobility</h3></div>
-      <div class="card card--feature card--num"><span class="card__num">02</span><h3>Core</h3></div>
-      <div class="card card--feature card--num"><span class="card__num">03</span><h3>Pelvis</h3></div>
-      <div class="card card--feature card--num"><span class="card__num">04</span><h3>Pelvic floor</h3></div>
-      <div class="card card--feature card--num"><span class="card__num">05</span><h3>Movement patterns</h3></div>
+      <div class="card card--feature card--num card--pillar"><span class="card__num">02</span><h3>Core</h3></div>
+      <div class="card card--feature card--num card--pillar"><span class="card__num">03</span><h3>Pelvis</h3></div>
+      <div class="card card--feature card--num card--pillar"><span class="card__num">04</span><h3>Pelvic floor</h3></div>
+      <div class="card card--feature card--num card--pillar"><span class="card__num">05</span><h3>Movement patterns</h3></div>
     </div>
   </div>
 </section>
