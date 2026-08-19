@@ -277,22 +277,9 @@ home += hero(
     "Birth and postpartum care for mothers and families in Scotts&nbsp;Valley, Santa&nbsp;Cruz, San&nbsp;Jose and surrounding areas.",
     "photo-boardwalk.jpg", p)
 home += TRUST
-home += f'''<section class="ornament">
-  <div class="wrap">
-    <div class="motifs">
-      <img src="{p}assets/img/line-1-soft.png" alt="" aria-hidden="true">
-      <img src="{p}assets/img/line-2-soft.png" alt="" aria-hidden="true">
-      <img src="{p}assets/img/line-3-soft.png" alt="" aria-hidden="true">
-    </div>
-    <div class="ornament__line">
-      <p>Every birth is different. The support should be too.</p>
-    </div>
-  </div>
-</section>
-
-'''
 home += f"""<section class="section section--ink">
   <div class="wrap">
+    <p class="band-lead">Every birth is different. The support should be too.</p>
     <div class="grid grid--3">
       <div class="card card--feature card--num"><span class="card__num">01</span><h3>Connect</h3><p>Giving birth is one of the most important moments in your life. Surround yourself with people who make you feel safe, strong, and supported.</p></div>
       <div class="card card--feature card--num"><span class="card__num">02</span><h3>Empower</h3><p>We'll discuss your wishes and work together to build a personalized birth blueprint, so you can greet this transformative event with confidence.</p></div>
