@@ -490,6 +490,12 @@ br.br-wide { display: none; }
 .split--fill .split__media img { height: 100%; max-height: none; object-fit: cover; }
 @media (max-width: 760px) { .split--fill .split__media { min-height: 280px; } }
 
+/* coverage panel standing in for the photo beside the package list */
+.coverage { align-self: center; }
+.coverage h3 { margin-bottom: .8em; }
+.coverage .checklist li { padding-bottom: 14px; }
+.coverage .btn-row { margin-top: 22px; }
+
 /* checklist */
 .checklist { list-style: none; margin: 0; padding: 0; }
 .checklist li { position: relative; padding: 0 0 16px 30px; }
