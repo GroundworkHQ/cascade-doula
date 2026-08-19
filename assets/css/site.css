@@ -329,7 +329,10 @@ br.br-wide { display: none; }
   overflow: hidden;
   padding: 42px 40px 46px;
   /* warm vertical wash rather than flat white, so the card has some depth */
-  background: linear-gradient(175deg, #fff 0%, #fffdfa 55%, #fbf6ef 100%);
+  /* the old gradient ended at #fbf6ef, which is the page cream, so cards
+     dissolved into the background at the bottom. Ends lighter now, so the
+     card stays a distinct surface all the way down. */
+  background: linear-gradient(175deg, #fff 0%, #fffdfb 60%, #fdf9f4 100%);
   border: 1px solid rgba(61, 43, 53, .09);
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(61, 43, 53, .04);

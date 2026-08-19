@@ -258,6 +258,14 @@ QUOTES = [
 def quote_html(q, who):
     return f'<figure class="quote"><p>&ldquo;{q}&rdquo;</p><cite>{who}</cite></figure>'
 
+PACKAGE_SUMMARY = [
+    "Two prenatal visits to plan your birth and your postpartum",
+    "Continuous support through labor and delivery, for you and your partner",
+    "Breastfeeding help in the first hour after birth",
+    "Two postpartum visits, plus referrals when you need them",
+    "Unlimited phone and chat support the whole way through",
+]
+
 PACKAGE_ITEMS = [
     "Two 2-hour prenatal visits to assess your needs and desires for birth, provide useful tools for labor and birth so you feel empowered and supported, and establish your postpartum plan",
     "Help with any concerns, plus information about holistic and natural remedies for minor pregnancy discomforts",
@@ -313,7 +321,7 @@ home += f"""<section class="section section--ink">
         <h2>What is included</h2>
         <p class="lede">Services are tailored to your specific needs. A basic package includes:</p>
         <ul class="checklist">
-          {"".join(f"<li>{i}</li>" for i in PACKAGE_ITEMS[:5])}
+          {"".join(f"<li>{i}</li>" for i in PACKAGE_SUMMARY)}
         </ul>
         <div class="btn-row"><a class="btn" href="{p}services-packages/">See the full package</a></div>
       </div>
