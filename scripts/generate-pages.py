@@ -279,7 +279,9 @@ home += hero(
 home += TRUST
 home += f"""<section class="section section--ink">
   <div class="wrap">
-    <p class="band-lead">Every birth is different. The support should be too.</p>
+    <div class="ornament__line">
+      <p class="band-lead">Every birth is different. The support should be too.</p>
+    </div>
     <div class="grid grid--3">
       <div class="card card--feature card--num"><span class="card__num">01</span><h3>Connect</h3><p>Giving birth is one of the most important moments in your life. Surround yourself with people who make you feel safe, strong, and supported.</p></div>
       <div class="card card--feature card--num"><span class="card__num">02</span><h3>Empower</h3><p>We'll discuss your wishes and work together to build a personalized birth blueprint, so you can greet this transformative event with confidence.</p></div>

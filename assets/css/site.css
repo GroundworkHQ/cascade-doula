@@ -445,8 +445,24 @@ br.br-wide { display: none; }
   border-radius: 6px;
   pointer-events: none;
 }
+/* soften the in-content photos: pull the saturation and contrast back a
+   touch, then lay a light blush wash over them so they sit in the palette
+   instead of reading as raw camera files */
+.split__media { isolation: isolate; }
+.split__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: rgb(240, 208, 205);
+  mix-blend-mode: multiply;
+  opacity: .26;
+  pointer-events: none;
+  z-index: 2;
+}
 .split__media img {
   position: relative;
+  filter: saturate(.78) contrast(.95) brightness(1.05);
   border-radius: 6px;
   box-shadow: var(--shadow);
   width: 100%;
@@ -665,6 +681,14 @@ body.modal-open { overflow: hidden; }
 }
 .ornament__line::after { transform: scaleX(-1); }
 .ornament__line p { flex: 0 1 auto; }
+/* on the dark band the rules need to be light, and the lead loses its auto
+   margins so the flex row can centre it */
+.section--ink .ornament__line::before,
+.section--ink .ornament__line::after {
+  background: linear-gradient(90deg, rgba(250, 226, 227, 0), rgba(250, 226, 227, .45));
+}
+.ornament__line .band-lead { margin: 0; flex: 0 1 auto; }
+.section--ink .ornament__line { margin-bottom: clamp(38px, 5vw, 62px); }
 /* the ornament already provides breathing room, so the section after it
    does not need a full top pad */
 .ornament + .section { padding-top: clamp(26px, 3.5vw, 52px); }
@@ -689,6 +713,7 @@ body.modal-open { overflow: hidden; }
   align-items: flex-start;
 }
 .form-aside__photo {
+  filter: saturate(.78) contrast(.95) brightness(1.05);
   width: 96px;
   height: 96px;
   border-radius: 50%;
