@@ -200,21 +200,22 @@ p:last-child { margin-bottom: 0; }
   mix-blend-mode: screen;
   pointer-events: none;
 }
-/* blush halo behind the copy, in the same family as the wash */
-.hero--light .hero__inner { position: relative; }
-.hero--light .hero__inner::before {
+/* Blush halo behind the copy. It lives on the hero itself, not on the text
+   block: the ellipse is wider than the text block, so anchoring it there
+   clipped it against that element's box and left a hard vertical seam. */
+.hero--light::after {
   content: "";
   position: absolute;
-  inset: -50px -140px -50px -80px;
-  background: radial-gradient(ellipse 62% 60% at 32% 50%,
-    rgba(243, 226, 218, .82) 0%,
-    rgba(243, 226, 218, .55) 45%,
-    rgba(243, 226, 218, .18) 74%,
+  inset: 0;
+  background: radial-gradient(ellipse 46% 66% at 24% 50%,
+    rgba(243, 226, 218, .84) 0%,
+    rgba(243, 226, 218, .58) 40%,
+    rgba(243, 226, 218, .24) 70%,
     rgba(243, 226, 218, 0) 100%);
   pointer-events: none;
   z-index: 0;
 }
-.hero--light .hero__inner > * { position: relative; z-index: 1; }
+.hero--light .hero__inner { position: relative; z-index: 1; }
 /* lift the photo itself rather than piling on more tint, so it gets
    lighter without disappearing under the wash again */
 .hero--light .hero__media img { filter: brightness(1.14) contrast(1.02); }
