@@ -433,8 +433,31 @@ p:last-child { margin-bottom: 0; }
   padding: clamp(40px, 6vw, 70px) 0 clamp(30px, 4vw, 46px);
   text-align: center;
 }
-.ornament .motifs { margin-bottom: 22px; }
+/* spread the drawings across most of the width so the band does not sit
+   as a small cluster in a wide empty field */
+.ornament .motifs {
+  margin-bottom: 26px;
+  gap: clamp(40px, 14vw, 210px);
+}
 .ornament .motifs img { height: clamp(110px, 14vw, 172px); opacity: .85; }
+
+/* hairlines running out from the text toward the container edges */
+.ornament__line {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 40px);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.ornament__line::before,
+.ornament__line::after {
+  content: "";
+  flex: 1 1 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(160, 77, 99, 0), rgba(160, 77, 99, .45));
+}
+.ornament__line::after { transform: scaleX(-1); }
+.ornament__line p { flex: 0 1 auto; }
 /* the ornament already provides breathing room, so the section after it
    does not need a full top pad */
 .ornament + .section { padding-top: clamp(26px, 3.5vw, 52px); }

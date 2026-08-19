@@ -272,6 +272,20 @@ home += hero(
     "Birth and postpartum care for mothers and families in Scotts&nbsp;Valley, Santa&nbsp;Cruz, San&nbsp;Jose and surrounding areas.",
     "photo-boardwalk.jpg", p)
 home += TRUST
+home += f'''<section class="ornament">
+  <div class="wrap">
+    <div class="motifs">
+      <img src="{p}assets/img/line-1-soft.png" alt="" aria-hidden="true">
+      <img src="{p}assets/img/line-2-soft.png" alt="" aria-hidden="true">
+      <img src="{p}assets/img/line-3-soft.png" alt="" aria-hidden="true">
+    </div>
+    <div class="ornament__line">
+      <p>Every birth is different. The support should be too.</p>
+    </div>
+  </div>
+</section>
+
+'''
 home += f"""<section class="section">
   <div class="wrap">
     <div class="grid grid--3">
