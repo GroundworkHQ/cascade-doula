@@ -207,7 +207,7 @@ def cta_band(p):
         <img src="{p}assets/img/line-3.png" alt="" aria-hidden="true">
       </div>
     <h2>Let's talk before your due date gets close</h2>
-    <p class="lede">A free consultation is the easiest first step. No pressure, just a conversation about the birth you want.</p>
+    <p class="lede">A free consultation is the easiest first step.<br class="br-wide"> No pressure, just a conversation about the birth you want.</p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn" href="{p}consultation/">Book a free consult</a>
       <a class="btn btn--ghost" href="{p}contact/">Send a note instead</a>

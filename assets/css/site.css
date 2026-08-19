@@ -256,6 +256,10 @@ p:last-child { margin-bottom: 0; }
   .hero--art .hero__media img { height: clamp(110px, 30vw, 170px); opacity: .5; }
 }
 
+/* hard break that only applies where there is room for it */
+br.br-wide { display: none; }
+@media (min-width: 700px) { br.br-wide { display: inline; } }
+
 /* trust strip */
 .trust { background: var(--ink); color: #cfd8d0; padding: 20px 0; }
 .trust ul {
