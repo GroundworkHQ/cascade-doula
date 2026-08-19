@@ -9,8 +9,8 @@
   --cream: #fbf7f1;
   --sand: #f2e9dd;
   --sand-deep: #e6d9c9;
-  --clay: #bd6448;
-  --clay-dark: #a15238;
+  --clay: #a04d63;
+  --clay-dark: #8a4054;
   --soft: #8c7480;
   --muted: #7c6d75;
   --white: #fff;
@@ -273,7 +273,7 @@ p:last-child { margin-bottom: 0; }
 .card--feature:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
-  border-color: rgba(189, 100, 72, .3);
+  border-color: rgba(160, 77, 99, .3);
 }
 /* numbered variant: the numeral replaces the hairline rule */
 .card--feature.card--num::before { display: none; }
@@ -288,7 +288,7 @@ p:last-child { margin-bottom: 0; }
 .card--num { padding-top: 44px; }
 .card--feature .card__num + h3 {
   padding-top: 14px;
-  border-top: 2px solid rgba(189, 100, 72, .28);
+  border-top: 2px solid rgba(160, 77, 99, .28);
   display: inline-block;
 }
 .card--feature h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); margin-bottom: .55em; }
@@ -316,7 +316,7 @@ p:last-child { margin-bottom: 0; }
   content: "";
   position: absolute;
   top: 18px; right: -18px; bottom: -18px; left: 18px;
-  border: 1px solid rgba(189, 100, 72, .5);
+  border: 1px solid rgba(160, 77, 99, .5);
   border-radius: 6px;
   pointer-events: none;
 }

@@ -110,13 +110,13 @@ def footer(p):
 """
 
 def hero(title, lede, img, p, short=False, ctas=True):
-    cls = "hero hero--short" if short else "hero"
+    cls = "hero hero--light hero--short" if short else "hero hero--light"
     btns = ""
     if ctas:
         btns = f"""
       <div class="btn-row">
         <a class="btn" href="{p}consultation/">Book a free consult</a>
-        <a class="btn btn--ghost" style="color:#fbf7f1;box-shadow:inset 0 0 0 1.5px rgba(251,247,241,.5)" href="{p}services-packages/">See what is included</a>
+        <a class="btn btn--ghost" href="{p}services-packages/">See what is included</a>
       </div>"""
     return f"""<section class="{cls}">
   <div class="hero__media"><img src="{p}assets/img/{img}" alt=""></div>
@@ -206,7 +206,7 @@ def cta_band(p):
     <p class="lede">A free consultation is the easiest first step. No pressure, just a conversation about the birth you want.</p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn" href="{p}consultation/">Book a free consult</a>
-      <a class="btn btn--ghost" style="color:#fbf7f1;box-shadow:inset 0 0 0 1.5px rgba(251,247,241,.5)" href="{p}contact/">Send a note instead</a>
+      <a class="btn btn--ghost" href="{p}contact/">Send a note instead</a>
     </div>
   </div>
 </section>
