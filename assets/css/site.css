@@ -685,7 +685,7 @@ body.modal-open { overflow: hidden; }
   margin: 0 0 36px;
 }
 .motifs img {
-  height: clamp(84px, 11vw, 132px);
+  height: clamp(104px, 14vw, 186px);
   width: auto;
   opacity: .5;
 }
@@ -812,6 +812,9 @@ body.modal-open { overflow: hidden; }
   font-size: .92rem;
 }
 section.section--ink:last-of-type { padding-bottom: clamp(46px, 6vw, 76px); }
+/* the closing CTA headline needs about 850px at its full size, so give that
+   band a wider measure than the default narrow wrap */
+section.section--ink:last-of-type .wrap.narrow { max-width: 920px; }
 .site-footer a { color: var(--sand); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer h4 { color: var(--cream); font-size: 1rem; margin-bottom: .8em; }
