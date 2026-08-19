@@ -478,6 +478,13 @@ br.br-wide { display: none; }
 .split--top { align-items: start; }
 .split--top .split__media img { height: auto; max-height: none; }
 
+/* landscape photo beside a long list: stretch the media to the column height
+   and crop, rather than letting a short image float with dead space below */
+.split--fill { align-items: stretch; }
+.split--fill .split__media { height: 100%; min-height: 380px; }
+.split--fill .split__media img { height: 100%; max-height: none; object-fit: cover; }
+@media (max-width: 760px) { .split--fill .split__media { min-height: 280px; } }
+
 /* checklist */
 .checklist { list-style: none; margin: 0; padding: 0; }
 .checklist li { position: relative; padding: 0 0 16px 30px; }

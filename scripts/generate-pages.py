@@ -292,7 +292,7 @@ home += f"""<section class="section section--ink">
 
 <section class="section section--sand">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--fill">
       <div class="split__media"><img src="{p}assets/img/nicole.jpg" alt="Nicole Lakey, birth doula"></div>
       <div>
         <p class="eyebrow">Meet Nicole</p>
@@ -307,7 +307,7 @@ home += f"""<section class="section section--ink">
 
 <section class="section">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--fill">
       <div>
         <p class="eyebrow">The birth doula package</p>
         <h2>What is included</h2>
@@ -337,7 +337,7 @@ home += f"""<section class="section section--ink">
 
 <section class="section">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--fill">
       <div class="split__media"><img src="{p}assets/img/photo-coast.jpg" alt=""></div>
       <div>
         <p class="eyebrow">Body Ready Method&reg;</p>
@@ -411,7 +411,7 @@ b += f"""<section class="section">
 
 <section class="section section--sand">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--fill">
       <div>
         <p class="eyebrow">Support for birth workers</p>
         <h2>One-on-one insurance billing guidance</h2>
@@ -441,7 +441,7 @@ b += hero("The birth doula package", "Tailored to your specific needs. Here is w
 b += TRUST
 b += f"""<section class="section">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--fill">
       <div>
         <ul class="checklist">
           {"".join(f"<li>{i}</li>" for i in PACKAGE_ITEMS)}
@@ -582,7 +582,7 @@ b += f"""<section class="section">
 
 <section class="section section--sand">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--fill">
       <div>
         <p class="eyebrow">Is this for you?</p>
         <h2>Who should work with me</h2>
