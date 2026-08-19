@@ -330,6 +330,24 @@ p:last-child { margin-bottom: 0; }
 }
 @media (max-width: 560px) { .motifs img:nth-child(3) { display: none; } }
 
+/* ornament band: the drawings used large and on purpose, high on the page,
+   sage-tinted so they read against cream */
+.ornament {
+  background: var(--cream);
+  padding: clamp(40px, 6vw, 70px) 0 clamp(30px, 4vw, 46px);
+  text-align: center;
+}
+.ornament .motifs { margin-bottom: 22px; }
+.ornament .motifs img { height: clamp(110px, 14vw, 172px); opacity: .85; }
+.ornament p {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
 /* photo strip */
 .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 3px; }
 .strip img { width: 100%; height: 300px; object-fit: cover; }
