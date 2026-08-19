@@ -378,6 +378,88 @@ p:last-child { margin-bottom: 0; }
   gap: 22px;
 }
 
+/* expandable testimonial cards */
+.quote--open {
+  cursor: pointer;
+  border: 1px solid rgba(61, 43, 53, .08);
+  border-left: 3px solid var(--clay);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.quote--open:hover, .quote--open:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  outline: none;
+}
+.quote--open:focus-visible { box-shadow: var(--shadow), 0 0 0 2px var(--clay); }
+.quote--open cite { display: block; }
+.quote__preview { color: var(--ink-soft); font-size: .95rem; }
+.quote__more {
+  display: block;
+  margin-top: 12px;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 600;
+}
+.quote__full { display: none; }
+
+/* modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(41, 29, 36, .55);
+  backdrop-filter: blur(3px);
+}
+.modal.is-open { display: flex; }
+.modal__panel {
+  background: var(--cream);
+  border-radius: 6px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: clamp(30px, 5vw, 52px);
+  box-shadow: 0 30px 80px -30px rgba(41, 29, 36, .6);
+  position: relative;
+}
+.modal__close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: none;
+  border: 0;
+  font: 400 1.6rem/1 var(--sans);
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+.modal__close:hover { color: var(--ink); background: rgba(61, 43, 53, .07); }
+.modal__lead {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  line-height: 1.35;
+  margin-bottom: 1em;
+}
+.modal__body p { color: var(--ink-soft); margin-bottom: 1em; }
+.modal__cite {
+  display: block;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(61, 43, 53, .15);
+  font-size: .78rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+}
+body.modal-open { overflow: hidden; }
+
 /* price table */
 .prices { list-style: none; margin: 0; padding: 0; }
 .prices li {
