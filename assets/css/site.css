@@ -267,34 +267,6 @@ p:last-child { margin-bottom: 0; }
 br.br-wide { display: none; }
 @media (min-width: 700px) { br.br-wide { display: inline; } }
 
-/* split hero: copy on a flat field at left, photograph filling the right.
-   The text no longer sits over the image, so it needs no scrim and the photo
-   can be shown at full strength. */
-.hero--split { background: linear-gradient(120deg, #fdf6f4 0%, #f9e9e6 55%, #f3dbd8 100%); }
-.hero--split::after { display: none; }
-.hero--split .hero__media { inset: 0 0 0 56%; }
-.hero--split .hero__media::before { display: none; }
-.hero--split .hero__media::after {
-  background: rgb(238, 186, 190);
-  mix-blend-mode: multiply;
-  opacity: .5;
-}
-.hero--split .hero__media img {
-  filter: grayscale(1) brightness(1.14) contrast(.97);
-  object-position: center;
-}
-.hero--split .hero__inner { max-width: 545px; padding: clamp(88px, 11vw, 148px) 0; }
-/* sized so "Unbiased, Unwavering" holds one line inside the 545px column.
-   At the site's 64px h1 it needs ~693px, which would run into the photo. */
-.hero--split h1 { color: var(--ink); font-size: clamp(2.2rem, 4.1vw, 3.05rem); }
-.hero--split .lede { color: var(--ink-soft); max-width: 465px; }
-@media (max-width: 900px) {
-  .hero--split .hero__media { position: relative; inset: auto; height: 300px; }
-  .hero--split .hero__inner { max-width: none; padding: 64px 0 40px; }
-  .hero--split .wrap { order: -1; }
-  .hero--split { display: flex; flex-direction: column-reverse; }
-}
-
 /* trust strip */
 /* light strip so the dark card band below it has room to land; the strip is
    supporting information, not a feature */
