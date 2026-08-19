@@ -177,34 +177,47 @@ p:last-child { margin-bottom: 0; }
 
 /* light hero: Nicole's blush washed over the photo instead of the dark
    evergreen. Text flips to ink, since cream would vanish on it. */
+.hero--light .hero__media { isolation: isolate; }
+/* Blush is multiplied INTO the photograph rather than laid over it. Multiply
+   keeps every tone and edge of the image and tints it, so the hero reads
+   properly pink while the photo stays fully visible. A screen layer lifts the
+   shadows so it does not go muddy. */
 .hero--light .hero__media::after {
-  /* light touch only. Legibility is handled by a local scrim behind the
-     text, not by tinting the whole photo pink. */
-  background: linear-gradient(105deg,
-    rgba(228, 209, 197, .42) 0%,
-    rgba(228, 209, 197, .26) 38%,
-    rgba(228, 209, 197, .10) 70%,
-    rgba(228, 209, 197, 0) 100%);
+  background: rgb(232, 208, 197);
+  mix-blend-mode: multiply;
+  opacity: .96;
 }
-/* soft cream halo behind the copy so dark text holds without pinking
-   the photo */
+.hero--light .hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(105deg,
+    rgba(255, 249, 245, .58) 0%,
+    rgba(255, 249, 245, .34) 40%,
+    rgba(255, 249, 245, .12) 75%,
+    rgba(255, 249, 245, .04) 100%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+/* blush halo behind the copy, in the same family as the wash */
 .hero--light .hero__inner { position: relative; }
 .hero--light .hero__inner::before {
   content: "";
   position: absolute;
   inset: -50px -140px -50px -80px;
   background: radial-gradient(ellipse 62% 60% at 32% 50%,
-    rgba(252, 249, 245, .93) 0%,
-    rgba(252, 249, 245, .74) 42%,
-    rgba(252, 249, 245, .28) 72%,
-    rgba(252, 249, 245, 0) 100%);
+    rgba(243, 226, 218, .82) 0%,
+    rgba(243, 226, 218, .55) 45%,
+    rgba(243, 226, 218, .18) 74%,
+    rgba(243, 226, 218, 0) 100%);
   pointer-events: none;
   z-index: 0;
 }
 .hero--light .hero__inner > * { position: relative; z-index: 1; }
 /* lift the photo itself rather than piling on more tint, so it gets
    lighter without disappearing under the wash again */
-.hero--light .hero__media img { filter: brightness(1.06) contrast(.98); }
+.hero--light .hero__media img { filter: brightness(1.14) contrast(1.02); }
 .hero--light h1 { color: var(--ink); }
 .hero--light .lede { color: var(--ink); font-weight: 500; }
 .hero--light .btn--ghost {
