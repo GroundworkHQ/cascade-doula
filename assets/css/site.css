@@ -46,6 +46,7 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
 /* keep headline lines evenly filled instead of dropping one short word
    onto a line of its own */
 h1, h2 { text-wrap: balance; }
+.lede { text-wrap: pretty; }
 h2 { font-size: clamp(2rem, 4vw, 3rem); }
 h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
 p { margin: 0 0 1.1em; }
@@ -105,6 +106,9 @@ p:last-child { margin-bottom: 0; }
 }
 .site-header .wrap { display: flex; align-items: center; gap: 22px; height: 74px; }
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
   font-family: var(--serif);
   font-size: 1.22rem;
   letter-spacing: .01em;
@@ -112,6 +116,9 @@ p:last-child { margin-bottom: 0; }
   white-space: nowrap;
   margin-right: auto;
 }
+/* clay so the mark anchors the left of the header against the clay CTA on
+   the right, while the wordmark stays ink and does not compete */
+.brand__mark { height: 46px; width: auto; flex: none; }
 .nav { display: flex; align-items: center; gap: 22px; }
 .nav a {
   font-size: .82rem;

@@ -50,7 +50,7 @@ def header(current, p):
     links_html = "\n      ".join(links)
     return f"""<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{p}">Cascade Doula Care</a>
+    <a class="brand" href="{p}"><img class="brand__mark" src="{p}assets/img/mark-clay.png" alt="" aria-hidden="true"><span>Cascade Doula Care</span></a>
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
     <nav class="nav" id="primary-nav">
       {links_html}
@@ -66,7 +66,7 @@ def footer(p):
     <div class="footer-grid">
       <div>
         <h4>Cascade Doula Care</h4>
-        <p>Birth and postpartum support for families in Scotts Valley, Santa Cruz, San Jose and surrounding areas.</p>
+        <p>Birth and postpartum support for families in Scotts&nbsp;Valley, Santa&nbsp;Cruz, San&nbsp;Jose and surrounding areas.</p>
         <p><a href="{IG}" rel="noopener">Instagram</a></p>
       </div>
       <div>
@@ -181,8 +181,8 @@ def form_block(p, heading="Tell me a little about you and your baby"):
         <p class="lede">I would love to hear from you. Tell me a little about you and your baby, and I will reach out soon. There is no wrong note to send.</p>
         <p><strong>Labor service:</strong> available 24/7<br><strong>Doula hours:</strong> Monday to Friday, 9am to 4pm</p>
         <div class="btn-row">
-          <a class="btn btn--ghost" href="{CALENDLY_SC}" rel="noopener">Santa Cruz consultation</a>
-          <a class="btn btn--ghost" href="{CALENDLY_LG}" rel="noopener">Los Gatos consultation</a>
+          <a class="btn btn--ghost" href="{CALENDLY_SC}" rel="noopener">Santa&nbsp;Cruz consultation</a>
+          <a class="btn btn--ghost" href="{CALENDLY_LG}" rel="noopener">Los&nbsp;Gatos consultation</a>
         </div>
       </div>
       <div class="form-panel">
@@ -202,7 +202,7 @@ def cta_band(p):
         <img src="{p}assets/img/line-2.png" alt="" aria-hidden="true">
         <img src="{p}assets/img/line-3.png" alt="" aria-hidden="true">
       </div>
-    <h2>Let us talk before your due date gets close</h2>
+    <h2>Let's talk before your due date gets close</h2>
     <p class="lede">A free consultation is the easiest first step. No pressure, just a conversation about the birth you want.</p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn" href="{p}consultation/">Book a free consult</a>
@@ -266,18 +266,18 @@ PACKAGE_ITEMS = [
 
 # ---------------------------------------------------------------- home
 p = ""
-home = head("Birth &amp; Postpartum Doula in Santa Cruz", "Birth and postpartum doula support for families in Scotts Valley, Santa Cruz and San Jose.", p)
+home = head("Birth &amp; Postpartum Doula in Santa&nbsp;Cruz", "Birth and postpartum doula support for families in Scotts&nbsp;Valley, Santa&nbsp;Cruz and San&nbsp;Jose.", p)
 home += header("", p)
 home += hero(
     "Unbiased, unwavering support for the birth you&nbsp;want",
-    "Birth and postpartum care for mothers and families in Scotts Valley, Santa Cruz, San Jose and surrounding areas.",
+    "Birth and postpartum care for mothers and families in Scotts&nbsp;Valley, Santa&nbsp;Cruz, San&nbsp;Jose and surrounding areas.",
     "photo-coast.jpg", p)
 home += TRUST
 home += f"""<section class="section">
   <div class="wrap">
     <div class="grid grid--3">
       <div class="card card--feature card--num"><span class="card__num">01</span><h3>Connect</h3><p>Giving birth is one of the most important moments in your life. Surround yourself with people who make you feel safe, strong, and supported.</p></div>
-      <div class="card card--feature card--num"><span class="card__num">02</span><h3>Empower</h3><p>We will discuss your wishes and work together to build a personalized birth blueprint, so you can greet this transformative event with confidence.</p></div>
+      <div class="card card--feature card--num"><span class="card__num">02</span><h3>Empower</h3><p>We'll discuss your wishes and work together to build a personalized birth blueprint, so you can greet this transformative event with confidence.</p></div>
       <div class="card card--feature card--num"><span class="card__num">03</span><h3>Prepare</h3><p>As your doula, I am here to provide education and resources so you are prepared to advocate for the birth you want, and to support you through whatever your birth brings.</p></div>
     </div>
   </div>
@@ -350,7 +350,7 @@ write("index.html", home)
 p = "../"
 
 # ---------------------------------------------------------------- about
-b = head("Meet Nicole", "Nicole Lakey, birth doula and certified Body Ready Method Pro serving Santa Cruz county.", p)
+b = head("Meet Nicole", "Nicole Lakey, birth doula and certified Body Ready Method Pro serving Santa&nbsp;Cruz county.", p)
 b += header("about/", p)
 b += hero("Meet Nicole", "Birth doula, certified Body Ready Method&reg; Pro, and a steady hand through the most important hours of your life.", "photo-couple.jpg", p, short=True, ctas=False)
 b += f"""<section class="section">
@@ -391,12 +391,12 @@ b += f"""<section class="section">
   <div class="wrap" style="margin-top:48px">
     <div class="grid grid--2">
       <div class="card"><h3>Childbirth education</h3><p>Learn what to expect during labor and birth, understand your options, and gain tools for comfort, advocacy, and informed decision-making.</p></div>
-      <div class="card"><h3>Setting birth intentions</h3><p>Clarify your hopes, preferences, and values around birth. Together we will explore what matters most to you so you can feel empowered in any birthing environment.</p></div>
+      <div class="card"><h3>Setting birth intentions</h3><p>Clarify your hopes, preferences, and values around birth. Together we'll explore what matters most to you so you can feel empowered in any birthing environment.</p></div>
       <div class="card"><h3>Emotional &amp; mental preparation</h3><p>Create space to release fears, build confidence, and prepare mentally and emotionally for the transition into parenthood.</p></div>
       <div class="card"><h3>Partner involvement</h3><p>Support your partner or support person in feeling prepared, connected, and ready to be an active part of the experience.</p></div>
     </div>
     <div class="wrap narrow" style="padding:0;margin-top:40px">
-      <p>Each session is tailored to meet your unique needs, questions, and vision for birth. Whether you are birthing at home, in a hospital, or a birth center, this is your space to learn, plan, and connect. Let us create a calm, empowered start to your birth journey.</p>
+      <p>Each session is tailored to meet your unique needs, questions, and vision for birth. Whether you're birthing at home, in a hospital, or a birth center, this is your space to learn, plan, and connect. Let's create a calm, empowered start to your birth journey.</p>
       <div class="btn-row"><a class="btn" href="{p}consultation/">Book a free consult</a></div>
     </div>
   </div>
@@ -408,8 +408,8 @@ b += f"""<section class="section">
       <div>
         <p class="eyebrow">Support for birth workers</p>
         <h2>One-on-one insurance billing guidance</h2>
-        <p>Are you a birth worker looking to expand your practice by offering services that are reimbursable through insurance, but do not know where to start? I offer personalized one-on-one support to help doulas and other perinatal professionals navigate the process of setting up and submitting insurance claims with confidence.</p>
-        <p>Whether you are brand new to billing or looking to refine your current system, I will guide you through:</p>
+        <p>Are you a birth worker looking to expand your practice by offering services that are reimbursable through insurance, but don't know where to start? I offer personalized one-on-one support to help doulas and other perinatal professionals navigate the process of setting up and submitting insurance claims with confidence.</p>
+        <p>Whether you're brand new to billing or looking to refine your current system, I'll guide you through:</p>
         <ul class="checklist">
           <li>Understanding what services can be billed</li>
           <li>Gathering and organizing the required documentation</li>
@@ -466,7 +466,7 @@ write("services-packages/index.html", b)
 # ---------------------------------------------------------------- testimonials
 b = head("Testimonials", "What families say about working with Nicole.", p)
 b += header("testimonials/", p)
-b += hero("Families Nicole has supported", "Twenty-nine notes from mothers, partners, and families across Santa Cruz county.", "photo-couple.jpg", p, short=True, ctas=False)
+b += hero("Families Nicole has supported", "Twenty-nine notes from mothers, partners, and families across Santa&nbsp;Cruz county.", "photo-couple.jpg", p, short=True, ctas=False)
 b += f"""<section class="section">
   <div class="wrap">
     <div class="quote-cols">
@@ -479,7 +479,7 @@ b += cta_band(p) + footer(p)
 write("testimonials/index.html", b)
 
 # ---------------------------------------------------------------- consultation
-b = head("Consultation", "Book a free consultation with Nicole in Santa Cruz or Los Gatos.", p)
+b = head("Consultation", "Book a free consultation with Nicole in Santa&nbsp;Cruz or Los&nbsp;Gatos.", p)
 b += header("consultation/", p)
 b += hero("Book a free consultation", "The easiest first step. Pick the location that works for you and grab a time.", "photo-boardwalk.jpg", p, short=True, ctas=False)
 b += f"""<section class="section">
@@ -487,15 +487,15 @@ b += f"""<section class="section">
     <div class="grid grid--2">
       <div class="card">
         <p class="eyebrow">30 minutes</p>
-        <h3>Santa Cruz consultation</h3>
+        <h3>Santa&nbsp;Cruz consultation</h3>
         <p>A short conversation about where you are, what you are hoping for, and whether we are a good fit.</p>
-        <div class="btn-row"><a class="btn" href="{CALENDLY_SC}" rel="noopener">Book now &middot; Santa Cruz</a></div>
+        <div class="btn-row"><a class="btn" href="{CALENDLY_SC}" rel="noopener">Book now &middot; Santa&nbsp;Cruz</a></div>
       </div>
       <div class="card">
         <p class="eyebrow">60 minutes</p>
-        <h3>Los Gatos consultation</h3>
+        <h3>Los&nbsp;Gatos consultation</h3>
         <p>A longer sit-down for families who want to go deeper on birth preferences and planning.</p>
-        <div class="btn-row"><a class="btn" href="{CALENDLY_LG}" rel="noopener">Book now &middot; Los Gatos</a></div>
+        <div class="btn-row"><a class="btn" href="{CALENDLY_LG}" rel="noopener">Book now &middot; Los&nbsp;Gatos</a></div>
       </div>
     </div>
     <div class="wrap narrow" style="padding:0;margin-top:44px;text-align:center">
