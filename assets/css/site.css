@@ -236,6 +236,9 @@ p:last-child { margin-bottom: 0; }
    and these weigh a tenth as much. */
 .hero--art { background: linear-gradient(118deg, #fdf5f3 0%, #f8e6e3 52%, #f2d9d7 100%); }
 .hero--art::after { display: none; }
+/* interior headings get a wider measure so short ones fit on one line.
+   The lede keeps its own 620px cap, so only the heading is affected. */
+.hero--art .hero__inner { max-width: 940px; }
 .hero--art .hero__media {
   display: flex;
   justify-content: flex-end;
