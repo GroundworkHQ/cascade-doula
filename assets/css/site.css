@@ -285,6 +285,10 @@ br.br-wide { display: none; }
   font-weight: 700;
   color: var(--ink);
 }
+/* dark variant, for pages where the light hero leaves the sand strip with
+   almost no contrast against it */
+.trust--dark { background: var(--ink); border-bottom: 0; }
+.trust--dark ul { color: #e6d8de; }
 
 /* cards */
 .grid { display: grid; gap: 26px; }
