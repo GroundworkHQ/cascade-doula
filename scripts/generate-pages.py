@@ -276,9 +276,9 @@ home += TRUST
 home += f"""<section class="section">
   <div class="wrap">
     <div class="grid grid--3">
-      <div class="card"><span class="card__num">01</span><h3>Connect</h3><p>Giving birth is one of the most important moments in your life. Surround yourself with people who make you feel safe, strong, and supported.</p></div>
-      <div class="card"><span class="card__num">02</span><h3>Empower</h3><p>We will discuss your wishes and work together to build a personalized birth blueprint, so you can greet this transformative event with confidence.</p></div>
-      <div class="card"><span class="card__num">03</span><h3>Prepare</h3><p>As your doula, I am here to provide education and resources so you are prepared to advocate for the birth you want, and to support you through whatever your birth brings.</p></div>
+      <div class="card card--feature card--num"><span class="card__num">01</span><h3>Connect</h3><p>Giving birth is one of the most important moments in your life. Surround yourself with people who make you feel safe, strong, and supported.</p></div>
+      <div class="card card--feature card--num"><span class="card__num">02</span><h3>Empower</h3><p>We will discuss your wishes and work together to build a personalized birth blueprint, so you can greet this transformative event with confidence.</p></div>
+      <div class="card card--feature card--num"><span class="card__num">03</span><h3>Prepare</h3><p>As your doula, I am here to provide education and resources so you are prepared to advocate for the birth you want, and to support you through whatever your birth brings.</p></div>
     </div>
   </div>
 </section>
@@ -452,9 +452,9 @@ b += f"""<section class="section">
     <p class="eyebrow">How it works</p>
     <h2 style="margin-bottom:1em">Three stages, one steady presence</h2>
     <div class="grid grid--3">
-      <div class="card"><span class="card__num">01</span><h3>Before</h3><p>An initial prenatal appointment covering labor ideas, pain management, and building your birth plan. A second prenatal covers early labor planning, what to pack, and comfort techniques. In person or virtually.</p></div>
-      <div class="card"><span class="card__num">02</span><h3>During</h3><p>Position ideas, reminders of your plans and goals, and making sure you feel safe and respected. Your partner is supported too, including when to eat, drink, and rest.</p></div>
-      <div class="card"><span class="card__num">03</span><h3>After</h3><p>Postpartum support focused on the Golden Hour, skin-to-skin contact, and breastfeeding guidance, plus two follow-up visits.</p></div>
+      <div class="card card--feature card--num"><span class="card__num">01</span><h3>Before</h3><p>An initial prenatal appointment covering labor ideas, pain management, and building your birth plan. A second prenatal covers early labor planning, what to pack, and comfort techniques. In person or virtually.</p></div>
+      <div class="card card--feature card--num"><span class="card__num">02</span><h3>During</h3><p>Position ideas, reminders of your plans and goals, and making sure you feel safe and respected. Your partner is supported too, including when to eat, drink, and rest.</p></div>
+      <div class="card card--feature card--num"><span class="card__num">03</span><h3>After</h3><p>Postpartum support focused on the Golden Hour, skin-to-skin contact, and breastfeeding guidance, plus two follow-up visits.</p></div>
     </div>
   </div>
 </section>
@@ -564,11 +564,11 @@ b += f"""<section class="section">
   </div>
   <div class="wrap" style="margin-top:40px">
     <div class="grid grid--3">
-      <div class="card"><span class="card__num">01</span><h3>Upper body mobility</h3></div>
-      <div class="card"><span class="card__num">02</span><h3>Core</h3></div>
-      <div class="card"><span class="card__num">03</span><h3>Pelvis</h3></div>
-      <div class="card"><span class="card__num">04</span><h3>Pelvic floor</h3></div>
-      <div class="card"><span class="card__num">05</span><h3>Movement patterns</h3></div>
+      <div class="card card--feature card--num"><span class="card__num">01</span><h3>Upper body mobility</h3></div>
+      <div class="card card--feature card--num"><span class="card__num">02</span><h3>Core</h3></div>
+      <div class="card card--feature card--num"><span class="card__num">03</span><h3>Pelvis</h3></div>
+      <div class="card card--feature card--num"><span class="card__num">04</span><h3>Pelvic floor</h3></div>
+      <div class="card card--feature card--num"><span class="card__num">05</span><h3>Movement patterns</h3></div>
     </div>
   </div>
 </section>

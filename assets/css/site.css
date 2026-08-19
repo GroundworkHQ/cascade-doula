@@ -230,6 +230,20 @@ p:last-child { margin-bottom: 0; }
   box-shadow: var(--shadow);
   border-color: rgba(189, 100, 72, .3);
 }
+/* numbered variant: the numeral replaces the hairline rule */
+.card--feature.card--num::before { display: none; }
+.card--feature .card__num {
+  font-size: 2.6rem;
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+  color: var(--clay);
+}
+.card--feature .card__num + h3 {
+  padding-top: 14px;
+  border-top: 2px solid rgba(189, 100, 72, .28);
+  display: inline-block;
+}
 .card--feature h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); margin-bottom: .55em; }
 .card--feature p { color: var(--ink-soft); position: relative; }
 
@@ -339,6 +353,9 @@ p:last-child { margin-bottom: 0; }
 }
 .ornament .motifs { margin-bottom: 22px; }
 .ornament .motifs img { height: clamp(110px, 14vw, 172px); opacity: .85; }
+/* the ornament already provides breathing room, so the section after it
+   does not need a full top pad */
+.ornament + .section { padding-top: clamp(26px, 3.5vw, 52px); }
 .ornament p {
   font-family: var(--serif);
   font-size: clamp(1.15rem, 2.2vw, 1.55rem);
