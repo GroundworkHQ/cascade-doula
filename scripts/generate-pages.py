@@ -174,7 +174,7 @@ FORM_FIELDS = """      <div class="field-row">
 def form_block(p, heading="Tell me a little about you and your baby"):
     return f"""<section class="section" id="contact-form">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--top">
       <div>
         <p class="eyebrow">Get in touch</p>
         <h2>{heading}</h2>
