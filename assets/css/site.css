@@ -491,7 +491,10 @@ br.br-wide { display: none; }
 @media (max-width: 760px) { .split--fill .split__media { min-height: 280px; } }
 
 /* coverage panel standing in for the photo beside the package list */
-.coverage { align-self: center; }
+/* start level with the checklist opposite, not centred against the whole
+   column: the heading and lede introduce the section, then the two parallel
+   blocks begin together */
+.coverage { align-self: start; }
 .coverage h3 { margin-bottom: .9em; }
 /* no bullets here on purpose: the left column is already a bulleted list, and
    two identical lists side by side read as twins rather than as two kinds of
