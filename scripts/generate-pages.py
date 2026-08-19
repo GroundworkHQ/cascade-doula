@@ -38,7 +38,6 @@ def head(title, desc, p):
 <link rel="stylesheet" href="{p}assets/css/site.css?v={ASSET_V}">
 </head>
 <body>
-<div class="preview-flag">Design proposal for Nicole · not the live site</div>
 """
 
 def header(current, p):
