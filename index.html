@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260818211617">
+<link rel="stylesheet" href="assets/css/site.css?v=20260818212109">
 </head>
 <body>
 <header class="site-header">
@@ -113,9 +113,9 @@
     <p class="eyebrow">In their words</p>
     <h2 style="margin-bottom:1em">Families Nicole has supported</h2>
     <div class="grid grid--3">
-      <figure class="quote"><p>&ldquo;I knew I wanted to use Nicole as my doula within the first few moments I spoke with her.&rdquo;</p><cite>Rose B.</cite></figure>
-      <figure class="quote"><p>&ldquo;Nicole was such an invaluable part of our birth; I actually do not know how women give birth without her.&rdquo;</p><cite>Caty</cite></figure>
-      <figure class="quote"><p>&ldquo;Working with Nicole was the single best decision I made to support my birthing journey.&rdquo;</p><cite>Janae</cite></figure>
+      <figure class="quote quote--open" tabindex="0" role="button" aria-label="Read the full review from Rose B."><p>&ldquo;I knew I wanted to use Nicole as my doula within the first few moments I spoke with her.&rdquo;</p><p class="quote__preview">Her warm and nurturing nature put me to ease right away. She was very attentive not just during labor but also...</p><cite>Rose B.</cite><span class="quote__more">Read the full review</span><div class="quote__full"><p>Her warm and nurturing nature put me to ease right away. She was very attentive not just during labor but also leading up to my due date and postpartum. Her medical background added to her being a great support person. She took tender care of my newborn and assured me verbally where she was when the midwife went to work on me. She was great with our older kids as well and helped them navigate the birthing space when needed. She arrived swiftly when we were ready.</p><p>Upon arrival she thoughtfully presented us with a birth candle and me a scented eye pillow. We also had her do our birth photography, and she did an amazing job. She beautifully captured the most significant moments and the environment before and after birth. She somehow managed to tend to my needs while also remaining camera ready at the same time.</p><p>I would recommend her to anyone who asks.</p></div></figure>
+      <figure class="quote quote--open" tabindex="0" role="button" aria-label="Read the full review from Caty"><p>&ldquo;Nicole was such an invaluable part of our birth; I actually do not know how women give birth without her.&rdquo;</p><p class="quote__preview">Having a baby was probably the most intense experience of my life, and Nicole made it incredible. With her support, I...</p><cite>Caty</cite><span class="quote__more">Read the full review</span><div class="quote__full"><p>Having a baby was probably the most intense experience of my life, and Nicole made it incredible. With her support, I felt powerful, informed and comforted. We are so grateful for her unrelenting energy, attention and love.</p><p>Nicole was non-stop positive support for my pregnancy, post partum, early labor, but most significantly the 24-hours I labored at the hospital. She was the captain of the whole event. Even from the moment we arrived, she was advocating to staff about our wishes and ensured I was insolated from external stresses.</p><p>Her knowledge in baby positioning and spinning was nothing short of witchcraft. My baby didn't have the optimal position during labor which led to some good back pain. Nicole could visualize which positions in which specific order and with what counter pressure were necessary to flip her. This relieved pain and help my delivery to progress.</p><p>This testimonial does not scratch the surface of all the ways Nicole supported our family. She is incredibly knowledgeable and the absolute best. She helped bring our daughter into this world and is now forever apart of the family.</p></div></figure>
+      <figure class="quote quote--open" tabindex="0" role="button" aria-label="Read the full review from Janae"><p>&ldquo;Working with Nicole was the single best decision I made to support my birthing journey.&rdquo;</p><p class="quote__preview">She was incredibly knowledgeable, kind, and supportive in every step of the journey from preparation and labor to...</p><cite>Janae</cite><span class="quote__more">Read the full review</span><div class="quote__full"><p>She was incredibly knowledgeable, kind, and supportive in every step of the journey from preparation and labor to postpartum. Nicole's presence in the delivery room is a huge reason I believe my birth went as well as it did.</p><p>She helped advocate for our needs and preferences, calmed our anxieties, explained everything that was happening thoroughly and thoughtfully, and was a grounding presence to both me and my husband. She was a step ahead of the nurses and facilitated our baby's entrance into the world beautifully. I would recommend working with Nicole to any expecting parents-to-be.</p></div></figure>
     </div>
     <div class="btn-row"><a class="btn btn--onlight-dark" href="testimonials/">Read all testimonials</a></div>
   </div>
@@ -240,6 +240,14 @@
   <a class="btn btn--ghost" href="contact/">Send a note</a>
   <a class="btn" href="consultation/">Book a consult</a>
 </div>
-<script src="assets/js/site.js?v=20260818211617"></script>
+<div class="modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-lead">
+  <div class="modal__panel">
+    <button class="modal__close" type="button" data-modal-close aria-label="Close">&times;</button>
+    <p class="modal__lead" id="review-modal-lead"></p>
+    <div class="modal__body"></div>
+    <cite class="modal__cite"></cite>
+  </div>
+</div>
+<script src="assets/js/site.js?v=20260818212109"></script>
 </body>
 </html>

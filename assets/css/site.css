@@ -178,18 +178,33 @@ p:last-child { margin-bottom: 0; }
 /* light hero: Nicole's blush washed over the photo instead of the dark
    evergreen. Text flips to ink, since cream would vanish on it. */
 .hero--light .hero__media::after {
-  /* heavier on the left where the copy sits, still clear on the right so
-     the photo reads. The text column ends around 48% of the width. */
+  /* light touch only. Legibility is handled by a local scrim behind the
+     text, not by tinting the whole photo pink. */
   background: linear-gradient(105deg,
-    rgba(228, 209, 197, .97) 0%,
-    rgba(228, 209, 197, .93) 28%,
-    rgba(227, 207, 194, .74) 46%,
-    rgba(225, 204, 190, .34) 68%,
-    rgba(225, 204, 190, .10) 100%);
+    rgba(228, 209, 197, .42) 0%,
+    rgba(228, 209, 197, .26) 38%,
+    rgba(228, 209, 197, .10) 70%,
+    rgba(228, 209, 197, 0) 100%);
 }
+/* soft cream halo behind the copy so dark text holds without pinking
+   the photo */
+.hero--light .hero__inner { position: relative; }
+.hero--light .hero__inner::before {
+  content: "";
+  position: absolute;
+  inset: -50px -140px -50px -80px;
+  background: radial-gradient(ellipse 62% 60% at 32% 50%,
+    rgba(252, 249, 245, .93) 0%,
+    rgba(252, 249, 245, .74) 42%,
+    rgba(252, 249, 245, .28) 72%,
+    rgba(252, 249, 245, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero--light .hero__inner > * { position: relative; z-index: 1; }
 /* lift the photo itself rather than piling on more tint, so it gets
    lighter without disappearing under the wash again */
-.hero--light .hero__media img { filter: brightness(1.28) contrast(.92); }
+.hero--light .hero__media img { filter: brightness(1.06) contrast(.98); }
 .hero--light h1 { color: var(--ink); }
 .hero--light .lede { color: var(--ink); font-weight: 500; }
 .hero--light .btn--ghost {
