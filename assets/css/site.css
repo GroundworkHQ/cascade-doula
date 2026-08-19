@@ -270,7 +270,14 @@ br.br-wide { display: none; }
 @media (min-width: 700px) { br.br-wide { display: inline; } }
 
 /* trust strip */
-.trust { background: var(--ink); color: #cfd8d0; padding: 20px 0; }
+/* light strip so the dark card band below it has room to land; the strip is
+   supporting information, not a feature */
+.trust {
+  background: var(--sand);
+  color: var(--ink-soft);
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(61, 43, 53, .08);
+}
 .trust ul {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; justify-content: center;
