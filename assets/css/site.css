@@ -238,6 +238,9 @@ p:last-child { margin-bottom: 0; }
 /* interior headings get a wider measure so short ones fit on one line.
    The lede keeps its own 620px cap, so only the heading is affected. */
 .hero--art .hero__inner { max-width: 1000px; }
+/* a page label, not a section: about a third less height than the shared
+   short-hero padding, which also lets the drawing fill more of the band */
+.hero--art.hero--short .hero__inner { padding: clamp(44px, 5.4vw, 68px) 0; }
 .hero--art h1 { font-size: clamp(2.1rem, 4vw, 3.15rem); }
 /* a one-sentence hero lede can run a little wider than body copy without
    hurting readability; longer ones still wrap */
@@ -256,7 +259,7 @@ p:last-child { margin-bottom: 0; }
 .hero--art .hero__media::after { display: none; }
 .hero--art .hero__media img {
   width: auto;
-  height: clamp(140px, 25vw, 296px);
+  height: clamp(120px, 17vw, 208px);
   object-fit: contain;
   filter: none;
   opacity: .92;
