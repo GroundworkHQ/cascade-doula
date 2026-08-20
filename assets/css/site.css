@@ -194,30 +194,28 @@ p:last-child { margin-bottom: 0; }
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(105deg,
-    rgba(255, 226, 228, .52) 0%,
-    rgba(255, 226, 228, .34) 42%,
-    rgba(255, 226, 228, .18) 76%,
-    rgba(255, 226, 228, .10) 100%);
+  /* even wash, not directional: the copy is centred now, so contrast has to
+     be the same across the whole width instead of pooling on the left */
+  background: rgba(255, 226, 228, .40);
   mix-blend-mode: screen;
   pointer-events: none;
 }
-/* Blush halo behind the copy. It lives on the hero itself, not on the text
-   block: the ellipse is wider than the text block, so anchoring it there
-   clipped it against that element's box and left a hard vertical seam. */
-.hero--light::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 46% 66% at 24% 50%,
-    rgba(250, 226, 227, .86) 0%,
-    rgba(250, 226, 227, .6) 40%,
-    rgba(250, 226, 227, .26) 70%,
-    rgba(250, 226, 227, 0) 100%);
-  pointer-events: none;
-  z-index: 0;
-}
+/* No blush halo. There used to be an off-centre ellipse carving a light
+   pocket for left-aligned copy; the copy is centred now, so the pocket only
+   put a bright blob to one side of it. Contrast comes from the even wash
+   above plus the lifted photo below. */
 .hero--light .hero__inner { position: relative; z-index: 1; }
+/* Centred copy is the HOME hero only. Interior heroes carry .hero--light as
+   well, but their drawing is anchored to the right edge and the page below
+   them runs flush left, so centring them tips the band right and jogs against
+   the content underneath. They stay left. */
+.hero--light:not(.hero--art) .hero__inner {
+  max-width: 860px;
+  margin-inline: auto;
+  text-align: center;
+}
+.hero--light:not(.hero--art) .lede { margin-inline: auto; }
+.hero--light:not(.hero--art) .btn-row { justify-content: center; }
 /* lift the photo itself rather than piling on more tint, so it gets
    lighter without disappearing under the wash again */
 .hero--light .hero__media img { filter: grayscale(1) brightness(1.22) contrast(.95); }
@@ -290,6 +288,16 @@ br.br-wide { display: none; }
   font-weight: 700;
   color: var(--ink);
 }
+/* the strip states the four facts; this is the one way out of it, to the page
+   that explains them. Clay and an arrow so it does not read as a fifth claim. */
+.trust__link {
+  color: var(--clay);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(160, 77, 99, .35);
+  padding-bottom: 2px;
+}
+.trust__link:hover { border-bottom-color: var(--clay); }
+
 /* dark variant, for pages where the light hero leaves the sand strip with
    almost no contrast against it */
 .trust--dark { background: var(--ink); border-bottom: 0; }
@@ -329,6 +337,38 @@ br.br-wide { display: none; }
 /* premium feature cards: hairline rule, generous padding, and one of
    Nicole's line drawings watermarked into the corner. Paths are relative
    to this stylesheet so they work from any page depth. */
+/* FUNDING ROUTES, as editorial rows rather than cards.
+   Five one-sentence items in a card grid gave each sentence a whole box, left
+   an orphan hole in the second row, and made this page look like every other
+   grid on the site. Rows are only as tall as their content, the serif label
+   carries the weight, and the hairlines do the dividing a border used to. */
+.ways { border-top: 1px solid rgba(61, 43, 53, .14); }
+.way {
+  display: grid;
+  /* The label column is sized to the longest label, not padded out. At 290px
+     with a 56px gap, "Give Back" sat 259px away from the sentence explaining
+     it and the pair stopped reading as a pair. */
+  grid-template-columns: minmax(170px, 232px) 1fr;
+  gap: 18px 42px;
+  align-items: baseline;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(61, 43, 53, .14);
+}
+/* The label and its description are a pair, read across, so the size gap has
+   to stay small. At 1.6rem the serif ran 1.5x the body text and, being full
+   ink against the softer secondary colour, read bigger still. Around 1.2x is
+   close enough that the two sit together. */
+.way h3 {
+  margin: 0;
+  font-size: clamp(1.14rem, 1.55vw, 1.36rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.way p { margin: 0; max-width: 62ch; font-size: 1.04em; color: var(--ink-soft); }
+@media (max-width: 720px) {
+  .way { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+}
+
 .grid--duo { grid-template-columns: repeat(auto-fit, minmax(430px, 1fr)); }
 .card--feature {
   position: relative;
@@ -526,45 +566,86 @@ br.br-wide { display: none; }
 .split--fill .split__media img { height: 100%; max-height: none; object-fit: cover; }
 @media (max-width: 760px) { .split--fill .split__media { min-height: 280px; } }
 
-/* coverage panel standing in for the photo beside the package list */
-/* start level with the checklist opposite, not centred against the whole
-   column: the heading and lede introduce the section, then the two parallel
-   blocks begin together */
-.coverage { align-self: start; }
-.coverage h3 { margin-bottom: .9em; }
-/* no bullets here on purpose: the left column is already a bulleted list, and
-   two identical lists side by side read as twins rather than as two kinds of
-   information */
-.paylist { list-style: none; margin: 0; padding: 0; }
-.paylist li {
-  padding: 13px 0;
-  border-bottom: 1px solid rgba(61, 43, 53, .1);
+/* THE PACKAGE PANEL
+   This section used to be two lists side by side: a bare checklist against a
+   bordered card. Same shape, same weight, same grey, so it read as one list
+   duplicated rather than as an offer, and the bordered half held the weaker
+   content. One panel holding the whole package reads as the thing it is
+   describing, and it uses the full measure instead of two cramped columns. */
+.package {
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  padding: 46px 48px 40px;
+  background: linear-gradient(175deg, #fff 0%, #fffdfb 60%, #fdf9f4 100%);
+  border: 1px solid rgba(61, 43, 53, .09);
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(61, 43, 53, .04);
+}
+.package > * { position: relative; z-index: 1; }
+/* one of Nicole's drawings, bled off the corner, same treatment the feature
+   cards get. Bigger here because the panel is */
+.package::after {
+  content: "";
+  position: absolute;
+  right: -44px; bottom: -66px;
+  width: 300px; height: 300px;
+  background: url("../img/line-2.png") no-repeat center / contain;
+  opacity: .15;
+  filter: invert(18%) sepia(12%) saturate(900%) hue-rotate(90deg);
+  pointer-events: none;
+  z-index: 0;
+}
+/* multi-column, not grid: five items across two columns balance themselves,
+   where a grid would tie each right-hand item's spacing to the height of the
+   left-hand item beside it and leave the second column looking irregular */
+.package__list { columns: 2; column-gap: 64px; }
+.package__list li { break-inside: avoid; }
+.package__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 28px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(61, 43, 53, .1);
+}
+.package__also {
+  margin: 0;
+  max-width: 660px;
+  font-size: .93rem;
+  line-height: 1.6;
   color: var(--ink-soft);
-  font-size: .97rem;
 }
-.paylist li:last-child { border-bottom: 0; }
-.coverage__link {
-  display: inline-block;
-  margin-top: 20px;
+.package__also span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: .72rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  font-weight: 700;
   color: var(--clay);
-  font-size: .82rem;
-  letter-spacing: .06em;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(160, 77, 99, .35);
-  padding-bottom: 2px;
 }
-.coverage__link:hover { border-bottom-color: var(--clay); }
+.package__foot .btn { flex: 0 0 auto; }
+@media (max-width: 760px) {
+  .package { padding: 34px 26px 30px; }
+  .package__list { columns: 1; }
+  .package__foot { flex-direction: column; align-items: flex-start; gap: 26px; }
+}
 
 /* checklist */
 .checklist { list-style: none; margin: 0; padding: 0; }
 .checklist li { position: relative; padding: 0 0 16px 30px; }
+/* a check, not a dot: every one of these lists is a "what you get" list, and
+   the tick says included in a way a neutral bullet does not */
 .checklist li::before {
-  content: ""; position: absolute; left: 0; top: .62em;
-  width: 9px; height: 9px; border-radius: 50%;
-  background: var(--clay);
+  content: ""; position: absolute; left: 3px; top: .36em;
+  width: 6px; height: 11px;
+  border: solid var(--clay);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
-.section--ink .checklist li::before { background: var(--sand-deep); }
+.section--ink .checklist li::before { border-color: var(--sand-deep); }
 
 /* quotes */
 .quote {

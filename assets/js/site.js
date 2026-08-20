@@ -20,7 +20,11 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
   });
 });
 
-// Testimonial cards open the full review in a modal.
+// Testimonial cards and Body Ready Method pillars share one modal.
+// These used to be two separate IIFEs with two sets of listeners. Only the
+// first owned the Escape handler and its focus restoration, so closing a
+// pillar modal with Escape stranded focus on the hidden close button. One
+// controller, one set of listeners, focus returns from either kind of card.
 (function () {
   var modal = document.getElementById('review-modal');
   if (!modal) return;
@@ -30,11 +34,11 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
   var cite = modal.querySelector('.modal__cite');
   var lastFocused = null;
 
-  function open(card) {
+  function open(card, leadText, citeText) {
     lastFocused = card;
-    lead.textContent = card.querySelector('p').textContent;
+    lead.textContent = leadText;
     body.innerHTML = card.querySelector('.quote__full').innerHTML;
-    cite.textContent = card.querySelector('cite').textContent;
+    cite.textContent = citeText;
     modal.classList.add('is-open');
     document.body.classList.add('modal-open');
     panel.scrollTop = 0;
@@ -47,11 +51,24 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
     if (lastFocused) lastFocused.focus();
   }
 
-  document.querySelectorAll('.quote--open').forEach(function (card) {
-    card.addEventListener('click', function () { open(card); });
+  function bind(card, getLead, getCite) {
+    function fire() { open(card, getLead(card), getCite(card)); }
+    card.addEventListener('click', fire);
     card.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); }
     });
+  }
+
+  document.querySelectorAll('.quote--open').forEach(function (card) {
+    bind(card,
+      function (c) { return c.querySelector('p').textContent; },
+      function (c) { return c.querySelector('cite').textContent; });
+  });
+
+  document.querySelectorAll('.pillar--open').forEach(function (card) {
+    bind(card,
+      function (c) { return c.querySelector('h3').textContent; },
+      function () { return ''; });
   });
 
   modal.addEventListener('click', function (e) {
@@ -59,39 +76,5 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
-  });
-})();
-
-// Body Ready Method pillars reuse the same modal as the reviews.
-(function () {
-  var modal = document.getElementById('review-modal');
-  if (!modal) return;
-  var lead = modal.querySelector('.modal__lead');
-  var body = modal.querySelector('.modal__body');
-  var cite = modal.querySelector('.modal__cite');
-  var last = null;
-
-  function open(card) {
-    last = card;
-    lead.textContent = card.querySelector('h3').textContent;
-    body.innerHTML = card.querySelector('.quote__full').innerHTML;
-    cite.textContent = '';
-    modal.classList.add('is-open');
-    document.body.classList.add('modal-open');
-    modal.querySelector('.modal__panel').scrollTop = 0;
-    modal.querySelector('.modal__close').focus();
-  }
-
-  document.querySelectorAll('.pillar--open').forEach(function (card) {
-    card.addEventListener('click', function () { open(card); });
-    card.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
-    });
-  });
-
-  modal.addEventListener('click', function (e) {
-    if (e.target === modal || e.target.hasAttribute('data-modal-close')) {
-      if (last) last.focus();
-    }
   });
 })();
