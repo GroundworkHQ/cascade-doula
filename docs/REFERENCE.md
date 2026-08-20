@@ -83,6 +83,13 @@ Lineage, so nobody re-litigates it: evergreen → warm espresso → **deep plum*
 Accent was clay orange, changed to deep rose because orange fought the plum.
 No green values remain anywhere.
 
+⚠️ **That last line was untrue until 2026-08-19.** The card watermarks were
+still rendering green, not from a colour value but from a filter chain:
+`invert(18%) sepia(12%) saturate(900%) hue-rotate(90deg)` on white art lands on
+`rgb(221, 217, 157)` and then rotates that yellow into green. Grepping for green
+hex values would never have found it. If green ever reappears, look for a
+`hue-rotate` before you look for a colour token.
+
 ### Type
 **Cormorant Garamond** (headings) + **Karla** (body), Google Fonts.
 
@@ -96,6 +103,13 @@ retuned. Predecessors: Fraunces + Inter, then Fraunces + Karla.
 - Interior hero `h1` `clamp(2.1rem, 4vw, 3.15rem)` — its own smaller scale
 - Closing CTA `h2` `clamp(1.7rem, 2.9vw, 2.3rem)`, its lede smaller again
 - Body 17px, per the 16-18px floor for tired readers on phones
+- `.lede--center` centres a lone opening statement, text and block. Used only
+  on Services. Four lines is the ceiling for centred copy; past that the eye
+  loses the return point. Do not put it on instructional paragraphs.
+- `.section--intro` trims a section's top padding to
+  `clamp(52px, 6vw, 84px)` for sections that open on a lone sentence rather
+  than an eyebrow and heading. The default 118px strands a single line in
+  cream. **Must stay after `.section` in source order**, equal specificity.
 
 ⚠️ **Numerals need `font-variant-numeric: lining-nums`.** Cormorant defaults to
 oldstyle figures, whose 3 4 5 7 9 drop below the baseline and collide with
@@ -107,6 +121,8 @@ anything underneath.
 - **Cards** (`.card--feature`): warm vertical wash, hairline border, corner
   bracket in clay, one of Nicole's drawings watermarked in the corner, hover
   lift. Numbered variant `.card--num` adds `01`-style numerals.
+- **Card watermarks have three cases** (see the table below). They are easy to
+  break as a set: changing the base rule alone will wreck one of the others.
 - **Photos**: `saturate(.78) contrast(.95) brightness(1.05)` plus a light blush
   wash multiplied over them, so they sit in the palette. Each has an offset
   hairline frame behind it, like a matted print.
@@ -118,6 +134,24 @@ anything underneath.
   copy left, one line drawing right, band ~248px. Photos behind interior
   headings needed so much tint they stopped reading, and cost ~500KB each.
 
+#### Card watermark cases
+
+| Case | Source | Size | Opacity |
+|---|---|---|---|
+| Light background | `line-N-soft.png` (mauve) | 210px | `.30` |
+| On a plum band (`.section--ink`) | `line-N.png` (white) | 210px | `.12` |
+| Pillar cards (`.card--pillar`) | inherits mauve | 88px | `.17` |
+
+Home and Services & Packages are the only pages whose feature cards sit on a
+dark band. Services and Body Ready Method are the light-card pages. The dark
+override lives near the bottom of the card block and wins on specificity, so
+**do not add a second `.section--ink .card--feature::after` rule** — one
+already exists and a duplicate silently loses.
+
+The pillar cards sit in a 210px column. At the base 210px the drawing showed
+about half the card and ran up behind the title, which is why they get their
+own smaller size rather than a lower opacity. The problem was size, not weight.
+
 ## 5. Nicole's assets (all borrowed)
 
 Everything in `assets/img/` came off her live site for the mockup.
@@ -125,8 +159,12 @@ Everything in `assets/img/` came off her live site for the mockup.
 - `nicole.jpg`, `photo-boardwalk`, `photo-coast`, `photo-couple`, `photo-garden`
 - `line-1/2/3.png` — her line drawings. Originals were WebP misnamed `.png`
   with **no alpha**, white art baked onto blush. Keyed to transparency here,
-  so they are tintable. `-soft` = dusty mauve, `-sage` = older green (unused),
-  `mark-clay.png` = the header mark in rose.
+  so they are tintable. `-soft` = dusty mauve `rgb(140, 116, 128)`, `-sage` =
+  older green `rgb(125, 143, 123)` (unused), `mark-clay.png` = the header mark
+  in rose. The plain files are **pure white** `rgb(255, 255, 255)`, which is why
+  they need a dark surface or a filter to show up at all.
+  As of 2026-08-19 the `-soft` files are load-bearing: they are the source for
+  every card watermark on a light background, not just decoration in the heroes.
 
 **Replace with originals from her before this goes anywhere real.** Ideally get
 the drawings as SVG. One photo appears on two pages (`photo-garden`); the rest
@@ -173,6 +211,20 @@ cannot set headers, so that tag is the only thing keeping this out of search.
   to emit the original ten and has been kept roughly in sync, but the pages are
   the source of truth now. Re-running it will overwrite hand work. Read it and
   diff before ever running it again.
+- **A filter chain can hide a colour that grep cannot find.** See §4: the card
+  drawings rendered green while no green value existed anywhere in the file.
+- **Check for an existing override before writing one.** The card block already
+  had a `.section--ink` override near the bottom; a second one added near the
+  top looked correct, computed correctly in isolation, and silently lost on
+  source order. Always grep the selector before adding a rule for it.
+- **Bumping `?v=` is not enough to see your own change in the browser.** The
+  query string busts the *stylesheet* cache; the *page* is still served from
+  Chrome's cache. Local checks need a cache-busting param on the page URL too,
+  or you will measure the old layout and conclude your edit reverted.
+- **A hung `git push` leaves an orphan that blocks the retry.** Two concurrent
+  pushes contend and both stall. Kill stale `git push` processes before
+  retrying, and verify against the GitHub API rather than assuming a timeout
+  means failure. Note `timeout` is not installed on this Mac; it is `gtimeout`.
 
 ## 8. Needs Nicole before this is real
 
