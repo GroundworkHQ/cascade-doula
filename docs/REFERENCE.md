@@ -1,109 +1,218 @@
 # cascade-doula — Reference
 
-> Source-of-truth reference for cascade-doula. Keep it current; `CLAUDE.md` points every new session here.
+> Source-of-truth reference for cascade-doula. `CLAUDE.md` points every new
+> session here. Last full update: 2026-08-19.
 
 ## 1. Overview
-Miguel's design for the **Cascade Doula Care** site. Built as an alternative so the client can pick between this and Luis's version.
+
+Miguel's design for the **Cascade Doula Care** site, built so the client can
+choose between it and Luis's version. Same client, same content, different
+design.
 
 - **Client:** Nicole Lakey, Cascade Doula Care. Birth and postpartum doula.
 - **Service area:** Scotts Valley, Santa Cruz, San Jose and surrounding areas.
 - **Instagram:** @doulanicolelakey
-- **Intake email on the live site:** cascadedoulanl@gmail.com
+- **Her intake email (on the live site):** cascadedoulanl@gmail.com
 - **Audience:** pregnant women. **Conversion goal:** submit the contact form.
 
-### Luis's version is live, do not touch it
-`Ooak21/cascadedoula.com` serves cascadedoula.com today (GitHub Pages, `www` CNAME to `ooak21.github.io`). Luis built it and cut over 2026-08-16. It has a Convex backend for the intake form and branded Resend mail. **This repo is a separate design proposal, not a fork and not a replacement.** Never push to Luis's repo.
+### Luis's version is live. Do not touch it.
+`Ooak21/cascadedoula.com` serves cascadedoula.com today (GitHub Pages, `www`
+CNAME to `ooak21.github.io`). Luis built it and cut over 2026-08-16, with a
+Convex backend for the intake form and branded Resend mail. **This repo is a
+separate proposal, not a fork and not a replacement.** Never push to Ooak21.
 
-### The live site as reference
-Ten pages: home, about, services, services-packages, testimonials, consultation, contact, creative-funding, body-ready-method, resources-for-mamas.
+## 2. Where it lives
 
-Visual direction on the live version: soft blush/mauve background, serif display type, muted sage green accent bands, black-and-white and desaturated maternity photography, line-drawing logo mark, very sparse homepage (tagline plus a four-photo grid).
+| | |
+|---|---|
+| Repo | `GroundworkHQ/cascade-doula` (public) |
+| Preview URL | https://cascade-doula.miguelloza.com/ |
+| Hosting | GitHub Pages, built from `main` |
+| DNS | repo `CNAME` file + Cloudflare `CNAME cascade-doula -> groundworkhq.github.io`, grey cloud |
+| Vercel | **None.** Miguel declined a Vercel project 2026-08-18, so `/preview`'s Vercel path does not apply |
 
-Content available to reuse (it is Nicole's own copy, from her live site):
-- **Tagline:** "Providing unbiased, unwavering birth and postpartum support for birthing mothers and families in Scotts Valley, Santa Cruz, San Jose and surrounding areas."
-- **Services:** one-on-one support for expecting families (childbirth education, setting birth intentions, emotional and mental preparation, partner involvement); insurance billing guidance for birth workers; the Birth Doula Package (two 2-hour prenatal visits, continuous labor support, initial breastfeeding support, two postpartum follow-ups, unlimited phone and chat support, optional extra visits and birth photography).
-- **Payment:** contracted with Central California Alliance for Health and Medi-Cal, plus private pay / sliding scale.
-- **Office hours:** labor service 24/7, doula hours Monday to Friday 9am to 4pm.
-- **Consultations:** two Calendly links, Santa Cruz and Los Gatos.
-- **Live form fields:** first name, last name, email, phone, estimated due date, who is your provider, planned place of delivery, tell me about yourself, what are you looking for (Birth Doula / One on One Virtual Support / Childbirth Education Classes / Doula to Doula mentorship). Submit label "Send a note."
+**Workflow: push to `main` → live.** Not a `preview` branch; Pages serves one
+branch only.
 
-Assets are NOT in hand. Nicole's photos and logo belong to her and are on the live site; get proper copies rather than scraping, or use placeholders until she provides them.
+⚠️ **Bump the `?v=` on the CSS and JS links in all ten pages after any asset
+change.** Pages sends `cache-control: max-age=600`, so without it browsers pair
+new HTML with a ten-minute-old stylesheet. This has caused real "it's broken"
+reports. One-liner:
 
-## 2. Stack & accounts
-**Decided:**
-- **Static front end** — plain HTML/CSS/JS to start, no build step.
-- **Hosting: GitHub Pages.** No Vercel. Miguel declined a Vercel project for this one on 2026-08-18, so the `/preview` skill's Vercel path does not apply here.
-- **Preview URL: https://cascade-doula.miguelloza.com/** — served by GitHub Pages from `main` (not a `preview` branch), via the repo's `CNAME` file plus a Cloudflare `CNAME cascade-doula -> groundworkhq.github.io` on miguelloza.com, grey cloud. To update the preview, push to `main`.
-- **noindex** comes from the `<meta name="robots">` tag in every page. GitHub Pages cannot set `X-Robots-Tag` headers, so the meta tag is the whole defense. Do not remove it while this is a proposal.
-- **Repo:** `GroundworkHQ/cascade-doula` (public). Created 2026-08-18, `origin` set. Public is required: Pages on a private repo needs a paid plan, and GroundworkHQ cannot hold a private repo at all while the account-wide billing hold stands.
+```bash
+python3 - <<'PY'
+import pathlib, re, subprocess
+v = subprocess.run(["date","+%Y%m%d%H%M%S"], capture_output=True, text=True).stdout.strip()
+root = pathlib.Path.home()/"Documents/code/cascade-doula"
+for f in [root/"index.html"] + sorted(root.glob("*/index.html")):
+    s = f.read_text(); f.write_text(re.sub(r'(assets/(?:css/site\.css|js/site\.js))\?v=\d+', rf'\1?v={v}', s))
+PY
+```
 
-**Open (see §7):**
-- Whether to stay no-build or adopt a framework.
-- Where the form eventually posts. Only matters if Nicole picks this design.
-- Domain and DNS. No CNAME yet, so the site serves from `groundworkhq.github.io/cascade-doula/` until a custom domain is pointed at it.
-- Whether this repo eventually moves to Ooak21, where client domain repos normally live.
+## 3. Stack
 
-**Not wired yet:** database, email, analytics, payments, auth.
+Static HTML, one shared stylesheet, one small JS file. No framework, no build
+step at runtime, no backend.
 
-If a database is added later, prefix tables `doula_` (NOT `cascade-doula_`, the hyphen is awkward in Postgres identifiers). Checked 2026-08-18: `internal-prod` holds `mc_state`, `ironlog_data`, `church_*` (7 tables), `clinic_*` (10 tables). No collision with `doula_`.
+```
+index.html              about/  services/  services-packages/  testimonials/
+consultation/  contact/  creative-funding/  body-ready-method/  resources-for-mamas/
+assets/css/site.css     the whole design system
+assets/js/site.js       mobile nav, demo-form intercept, review + pillar modals
+assets/img/             photos, line drawings, header mark
+scripts/generate-pages.py   emitted the ten pages; see §7 before running it
+.nojekyll               Jekyll processing failed builds on ordinary markdown in docs/
+```
 
-## 3. Architecture
-Ten static pages sharing `assets/css/site.css` and `assets/js/site.js`. Directory-per-page (`about/index.html`) so URLs match Nicole's existing slugs exactly. Links are relative, so it serves correctly from a subpath like `groundworkhq.github.io/cascade-doula/` as well as from a domain root.
+Directory-per-page so URLs match Nicole's existing slugs exactly. Links are
+relative, so it also serves correctly from a subpath.
 
-## 4. What's built
-All ten pages, static, no build step at runtime:
+## 4. Design system
 
-`/` `about/` `services/` `services-packages/` `testimonials/` `consultation/` `contact/` `creative-funding/` `body-ready-method/` `resources-for-mamas/`
+### Palette (tokens at the top of site.css)
+| Token | Value | Role |
+|---|---|---|
+| `--ink` | `#3d2b35` | deep plum, dark bands, footer is a step darker at `#33232c` |
+| `--ink-soft` | `#5b4552` | body copy |
+| `--cream` | `#fbf7f1` | page background |
+| `--sand` | `#f2e9dd` | alternating section band, trust strip |
+| `--clay` | `#a04d63` | deep rose accent: buttons, numerals, eyebrows, bullets, brackets |
+| `--muted` | `#7c6d75` | captions, attributions |
 
-- `assets/css/site.css` — the whole design system in one stylesheet (tokens at the top).
-- `assets/js/site.js` — mobile nav toggle, and the intercept that keeps the demo form from looking broken.
-- `assets/img/` — five photos pulled from Nicole's live site for the mockup. **Hers, used to show her a proposal. Replace with originals from her before this goes anywhere real, and do not treat them as ours.**
-- `scripts/generate-pages.py` — emitted the ten pages so the shared header and footer stayed identical. Pages are plain HTML and fine to hand-edit; only re-run this if the header, footer, or nav changes, and it overwrites the pages when you do.
+Lineage, so nobody re-litigates it: evergreen → warm espresso → **deep plum**.
+Accent was clay orange, changed to deep rose because orange fought the plum.
+No green values remain anywhere.
 
-Design decisions worth knowing:
-- Evergreen ink, warm cream, clay accent. Deliberately warmer and higher contrast than Luis's blush and sage, so the two read as real alternatives.
-- Cormorant Garamond + Karla from Google Fonts.
-- Conversion-first: a real hero with a CTA above the fold, a trust strip naming Medi-Cal / Alliance / FSA-HSA / sliding scale, a consult CTA in the header on every page, a sticky bottom CTA bar on mobile, and the form reachable from home, contact, and the birth doula page.
-- Every page carries `noindex, nofollow`. The visible "design proposal" banner was removed on Miguel's instruction 2026-08-18; the meta tag is now the only thing keeping this out of search, so do not remove it while the site lives at the preview URL.
-- The form posts nowhere. Submitting shows an inline note saying it is a proposal.
+### Type
+**Cormorant Garamond** (headings) + **Karla** (body), Google Fonts.
 
-## 5. What's next
-1. Miguel reviews locally: `python3 -m http.server 8931` from the repo root.
-2. Commit and push (this repo has Miguel's standing OK for end-of-session pushes).
-3. ~~Publish a shareable preview.~~ Done: https://cascade-doula.miguelloza.com/ (Pages, from `main`). cascadedoula.com is untouched and stays that way.
-4. Get original photos from Nicole and swap out the borrowed ones.
-5. Show her both, let her choose.
+Cormorant is the face Nicole already uses on her own Marriage Health Score
+page, so it is her choice rather than one imposed. It runs small and light for
+its point size, which is why heading weight is 600 and the display sizes were
+retuned. Predecessors: Fraunces + Inter, then Fraunces + Karla.
 
-Deferred unless she picks this one: the form backend and the data-handling notes in §7.
+- `h1` `clamp(2.5rem, 5.2vw, 4rem)` weight 600
+- `h2` `clamp(1.85rem, 3.4vw, 2.6rem)`
+- Interior hero `h1` `clamp(2.1rem, 4vw, 3.15rem)` — its own smaller scale
+- Closing CTA `h2` `clamp(1.7rem, 2.9vw, 2.3rem)`, its lede smaller again
+- Body 17px, per the 16-18px floor for tired readers on phones
 
-## 6. Conventions
-- No em dashes anywhere in client-facing copy.
-- Client-facing copy is the client's, not ours. Do not reword without asking Miguel.
-- Secrets in env only, never committed.
-- Commit + push at the end of each session (per-repo exception Miguel granted 2026-08-18; the global default is never auto-push).
-- One shared stylesheet, not per-page inline CSS. Ten pages sharing a design system made the self-contained-per-file rule the wrong call here.
+⚠️ **Numerals need `font-variant-numeric: lining-nums`.** Cormorant defaults to
+oldstyle figures, whose 3 4 5 7 9 drop below the baseline and collide with
+anything underneath.
 
-## 7. Open decisions
+### Shape and treatment
+- 6px radius on buttons, cards, photo frames. Buttons were pills; squared off
+  so they match everything else.
+- **Cards** (`.card--feature`): warm vertical wash, hairline border, corner
+  bracket in clay, one of Nicole's drawings watermarked in the corner, hover
+  lift. Numbered variant `.card--num` adds `01`-style numerals.
+- **Photos**: `saturate(.78) contrast(.95) brightness(1.05)` plus a light blush
+  wash multiplied over them, so they sit in the palette. Each has an offset
+  hairline frame behind it, like a matted print.
+- **Home hero**: full-bleed photograph with a blush duotone. Blush is
+  *multiplied into* a desaturated image rather than laid over it — that is the
+  only way to get a real pink cast and keep the photo visible at the same time.
+  A left-right split version was built and rejected 2026-08-19.
+- **Interior heroes** (`.hero--art`): flat pink field fading soft to full,
+  copy left, one line drawing right, band ~248px. Photos behind interior
+  headings needed so much tint they stopped reading, and cost ~500KB each.
 
-### Body Ready Method pillar copy is PLACEHOLDER
-The five pillar cards on `body-ready-method/` open a modal with a one-line
-description each. **Those descriptions are mine, not Nicole's and not Body
-Ready Method's.** They are deliberately neutral: they describe the body region
-and why it matters in pregnancy, and make no BRM method claims.
+## 5. Nicole's assets (all borrowed)
 
-Nicole is a certified BRM Pro and must approve or rewrite all five before this
-goes anywhere real. She may also have approved marketing language from BRM that
-she is licensed to use, which would be the better source. Copying the
-descriptions off bodyreadymethod.com is not an option; that is their copyrighted
-marketing copy and the liability would land on her.
+Everything in `assets/img/` came off her live site for the mockup.
 
-### Where the form posts (deferred)
-Not needed while this is a template. When it does go live, GitHub Pages cannot process a POST, so the form needs an external destination. Realistic options are a form service (Formspree, Basin, Getform; note Netlify Forms only works on Netlify hosting) or a Supabase Edge Function writing to a `doula_leads` table, the same shape as Rekindle's `rekindle-reserve`.
+- `nicole.jpg`, `photo-boardwalk`, `photo-coast`, `photo-couple`, `photo-garden`
+- `line-1/2/3.png` — her line drawings. Originals were WebP misnamed `.png`
+  with **no alpha**, white art baked onto blush. Keyed to transparency here,
+  so they are tintable. `-soft` = dusty mauve, `-sage` = older green (unused),
+  `mark-clay.png` = the header mark in rose.
 
-### Sensitive information (revisit before the form goes live)
-The visitors are pregnant women, and a name next to a due date is health-adjacent personal information. If the client is in California, CMIA is broader than HIPAA. When the form becomes real: ask for the minimum, avoid a free-text "tell us about your pregnancy" field, and keep client notifications as pointers rather than content. The rails in `clinic-receptionist/CLAUDE.md` §7 are the reference.
+**Replace with originals from her before this goes anywhere real.** Ideally get
+the drawings as SVG. One photo appears on two pages (`photo-garden`); the rest
+are used once.
 
-### Other
-- **Stack.** Hand-written no-build vs a framework. Deferred. The no-build + Pages shape fits a brochure site well and matches Rekindle and clinic-receptionist, but nothing is committed.
-- **Repo account.** Client domain repos live under `Ooak21`. This one stays under GroundworkHQ because it is Miguel's proposal, not the live site. If Nicole picks it, decide then whether it moves.
-- **Public repo, named client.** The repo is public and names the client. Miguel approved this on 2026-08-18 with that tradeoff on the table.
+## 6. What's built
+
+All ten pages, using Nicole's real copy throughout.
+
+- **Home** — hero, trust strip, plum band with tagline + Connect/Empower/Prepare,
+  Meet Nicole, package summary + Ways to Pay panel, three expandable reviews,
+  Body Ready Method teaser, contact form, closing CTA.
+- **Testimonials** — all **29 full reviews**, real text pulled from her live
+  site, ~4,500 words. Card shows headline + truncated preview; click or Enter
+  opens the full review in a modal. Escape/backdrop closes, focus returns.
+- **Body Ready Method** — five pillar cards that open the same modal, plus her
+  real pricing table. **Pillar descriptions are placeholders, see §8.**
+- **Birth Doula** — full 7-item package, three stages, dark trust strip.
+- **Contact / Consultation / Services / Creative Funding / Resources** — her
+  copy, her Calendly links.
+
+The contact form is **presentation only**. Submitting shows an inline note
+saying so. That is correct for a design being chosen between.
+
+Every page carries `<meta name="robots" content="noindex, nofollow">`. Pages
+cannot set headers, so that tag is the only thing keeping this out of search.
+**Do not remove it while the site lives at the preview URL.**
+
+## 7. Gotchas that have already bitten
+
+- **The `padding` shorthand silently overrides an earlier `padding-top`.** This
+  caused the corner bracket to cut through the card numerals for three rounds.
+- **Source order beats intent.** An override placed *before* the rule it means
+  to beat does nothing at equal specificity. Cost a broken dark trust strip
+  (plum text on plum) and an overflowing hero drawing.
+- **`backdrop-filter` kills subpixel antialiasing** for everything inside the
+  element. It made the whole nav render soft. Removed; also removed the
+  site-wide `-webkit-font-smoothing: antialiased`.
+- **A gradient clipped mid-fade is a hard edge.** A radial halo anchored to a
+  too-small element produced a visible vertical seam across the hero.
+- **Card gradients must not end at the page background colour**, or cards
+  dissolve at the bottom.
+- **`scripts/generate-pages.py` is behind the hand-edited pages.** It was used
+  to emit the original ten and has been kept roughly in sync, but the pages are
+  the source of truth now. Re-running it will overwrite hand work. Read it and
+  diff before ever running it again.
+
+## 8. Needs Nicole before this is real
+
+1. **The five Body Ready Method pillar descriptions are Miguel's placeholder
+   copy.** Neutral by design — they describe the body region and why it matters
+   in pregnancy, with no BRM method claims. She is the certified BRM Pro and
+   must approve or rewrite all five. She may have licensed marketing language
+   from BRM, which would be the better source. Copying bodyreadymethod.com is
+   not an option.
+2. **"Every birth is different. The support should be too."** is Miguel's line,
+   not hers.
+3. **Original photos and drawings**, replacing the borrowed ones.
+4. **One inconsistency in her own content:** her Services page says Central
+   California Alliance and Medi-Cal; her Creative Funding page says Kaiser and
+   Medi-Cal. Each page here uses its own page's wording. One is probably stale.
+5. **Where the form posts**, only if she picks this design. Options are a form
+   service or a Supabase Edge Function writing to a `doula_leads` table, the
+   same shape as Rekindle's `rekindle-reserve`.
+6. **Sensitive data.** Visitors are pregnant women and the form asks for a due
+   date. If she is in California, CMIA is broader than HIPAA. Ask for the
+   minimum, keep notifications as pointers not content. The rails in
+   `clinic-receptionist/CLAUDE.md` §7 are the reference.
+
+## 9. Conventions
+
+- No em dashes in client-facing copy.
+- Client copy is hers. Do not reword without asking Miguel. **Do not expand her
+  contractions** — that was done once and had to be reverted; it is the single
+  strongest tell that copy was machine-written.
+- Title case for h1–h4 and price names. Sentence case for anything ending in a
+  period.
+- Commit + push at the end of each session (per-repo exception Miguel granted
+  2026-08-18; the global default is never auto-push).
+- Verify layout claims by measuring in the DOM, not by eye. Several rounds were
+  lost to fixing the wrong element.
+
+## 10. Open decisions
+
+- **Repo account.** Client domain repos live under `Ooak21`. This stays under
+  GroundworkHQ because it is a proposal. Revisit only if she picks it.
+- **Public repo names the client.** Miguel approved that tradeoff 2026-08-18.
+- **Interior pages all open identically.** Consistent, but nothing distinguishes
+  them except the words and which drawing appears.
