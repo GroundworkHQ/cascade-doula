@@ -58,6 +58,11 @@ p:last-child { margin-bottom: 0; }
 .wrap.narrow--flush { max-width: var(--maxw); }
 .wrap.narrow--flush > * { max-width: 760px; }
 .section { padding: clamp(64px, 9vw, 118px) 0; }
+/* a section that opens on a lone statement rather than a heading. The full
+   118px left the sentence stranded in cream, far from the hero above it and
+   tight against the grid below. Must stay after .section: equal specificity,
+   so source order is what makes it win. */
+.section--intro { padding-top: clamp(52px, 6vw, 84px); }
 .section--sand { background: var(--sand); }
 .section--ink { background: var(--ink); color: var(--cream); }
 .section--ink h2, .section--ink h3 { color: var(--cream); }
@@ -378,14 +383,19 @@ br.br-wide { display: none; }
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: .2;
+  /* the drawings were nearly invisible at .2. They are a watermark, so they
+     still sit well under the text, but they should be findable. */
+  opacity: .30;
   pointer-events: none;
-  filter: invert(18%) sepia(12%) saturate(900%) hue-rotate(90deg);
 }
-.card--feature:nth-child(4n+1)::after { background-image: url("../img/line-1.png"); }
-.card--feature:nth-child(4n+2)::after { background-image: url("../img/line-2.png"); }
-.card--feature:nth-child(4n+3)::after { background-image: url("../img/line-3.png"); }
-.card--feature:nth-child(4n+4)::after { background-image: url("../img/line-2.png"); transform: scaleX(-1); }
+/* the -soft files are Nicole's drawings already keyed to dusty mauve. The
+   plain files are white art, which needed a filter chain to be visible on a
+   light card, and that chain ended in hue-rotate(90deg) and rendered them
+   green. Using the mauve original instead is both on-palette and simpler. */
+.card--feature:nth-child(4n+1)::after { background-image: url("../img/line-1-soft.png"); }
+.card--feature:nth-child(4n+2)::after { background-image: url("../img/line-2-soft.png"); }
+.card--feature:nth-child(4n+3)::after { background-image: url("../img/line-3-soft.png"); }
+.card--feature:nth-child(4n+4)::after { background-image: url("../img/line-2-soft.png"); transform: scaleX(-1); }
 .card--feature:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
@@ -464,6 +474,7 @@ br.br-wide { display: none; }
 .section--ink .card--feature:nth-child(4n+1)::after { background-image: url("../img/line-1.png"); }
 .section--ink .card--feature:nth-child(4n+2)::after { background-image: url("../img/line-2.png"); }
 .section--ink .card--feature:nth-child(4n+3)::after { background-image: url("../img/line-3.png"); }
+.section--ink .card--feature:nth-child(4n+4)::after { background-image: url("../img/line-2.png"); }
 .section--ink .card--feature:hover {
   border-color: rgba(255, 255, 255, .3);
   box-shadow: 0 18px 44px -22px rgba(0, 0, 0, .55);
