@@ -232,7 +232,8 @@ p:last-child { margin-bottom: 0; }
 /* interior heroes: flat blush field with one of Nicole's drawings instead of
    a photograph. Photos behind text needed so much tint they stopped reading,
    and these weigh a tenth as much. */
-.hero--art { background: linear-gradient(100deg, #fffdfc 0%, #fdf3f1 38%, #f7e2df 72%, #f0d3d0 100%); }
+/* soft pink into a fuller pink, no white anywhere in the run */
+.hero--art { background: linear-gradient(100deg, #fbeeeb 0%, #f7e3e0 50%, #f0d4d1 100%); }
 .hero--art::after { display: none; }
 /* interior headings get a wider measure so short ones fit on one line.
    The lede keeps its own 620px cap, so only the heading is affected. */
