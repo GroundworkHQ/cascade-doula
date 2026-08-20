@@ -73,6 +73,9 @@ p:last-child { margin-bottom: 0; }
 .section--ink .eyebrow { color: var(--sand-deep); }
 .lede { font-size: clamp(1.08rem, 1.6vw, 1.3rem); color: var(--ink-soft); }
 .section--ink .lede { color: #cfd8d0; }
+/* a standalone opening statement, centred on its own measure rather than
+   lining up with the grid underneath it */
+.lede--center { text-align: center; }
 
 /* buttons */
 .btn {
@@ -288,16 +291,6 @@ br.br-wide { display: none; }
   font-weight: 700;
   color: var(--ink);
 }
-/* the strip states the four facts; this is the one way out of it, to the page
-   that explains them. Clay and an arrow so it does not read as a fifth claim. */
-.trust__link {
-  color: var(--clay);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(160, 77, 99, .35);
-  padding-bottom: 2px;
-}
-.trust__link:hover { border-bottom-color: var(--clay); }
-
 /* dark variant, for pages where the light hero leaves the sand strip with
    almost no contrast against it */
 .trust--dark { background: var(--ink); border-bottom: 0; }
@@ -337,38 +330,6 @@ br.br-wide { display: none; }
 /* premium feature cards: hairline rule, generous padding, and one of
    Nicole's line drawings watermarked into the corner. Paths are relative
    to this stylesheet so they work from any page depth. */
-/* FUNDING ROUTES, as editorial rows rather than cards.
-   Five one-sentence items in a card grid gave each sentence a whole box, left
-   an orphan hole in the second row, and made this page look like every other
-   grid on the site. Rows are only as tall as their content, the serif label
-   carries the weight, and the hairlines do the dividing a border used to. */
-.ways { border-top: 1px solid rgba(61, 43, 53, .14); }
-.way {
-  display: grid;
-  /* The label column is sized to the longest label, not padded out. At 290px
-     with a 56px gap, "Give Back" sat 259px away from the sentence explaining
-     it and the pair stopped reading as a pair. */
-  grid-template-columns: minmax(170px, 232px) 1fr;
-  gap: 18px 42px;
-  align-items: baseline;
-  padding: 30px 0;
-  border-bottom: 1px solid rgba(61, 43, 53, .14);
-}
-/* The label and its description are a pair, read across, so the size gap has
-   to stay small. At 1.6rem the serif ran 1.5x the body text and, being full
-   ink against the softer secondary colour, read bigger still. Around 1.2x is
-   close enough that the two sit together. */
-.way h3 {
-  margin: 0;
-  font-size: clamp(1.14rem, 1.55vw, 1.36rem);
-  font-weight: 600;
-  line-height: 1.25;
-}
-.way p { margin: 0; max-width: 62ch; font-size: 1.04em; color: var(--ink-soft); }
-@media (max-width: 720px) {
-  .way { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
-}
-
 .grid--duo { grid-template-columns: repeat(auto-fit, minmax(430px, 1fr)); }
 .card--feature {
   position: relative;
